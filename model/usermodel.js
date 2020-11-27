@@ -1,5 +1,5 @@
 class user{
-    constructor(Name, )
+    constructor(username, password, email, city, interests, gender, sexualPrefference, dateOfBirth, likes)
     
 
 }
