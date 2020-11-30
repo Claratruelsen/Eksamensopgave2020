@@ -1,5 +1,4 @@
 class user{
-    constructor(username, password, email, city, interests, gender, sexualPrefference, dateOfBirth, likes)
+    constructor(userID, email, password, img, firstName, lastName, DOB, interests, gender, sexualPrefference, matches)
     
-
 }

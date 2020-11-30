@@ -1,0 +1,29 @@
+
+/*loginpage*/
+
+#login{
+    float: left;
+    margin-top: 30;
+    padding-top: 30;
+}
+
+#createUser{
+    float:right;
+    margin-top: 30;
+    padding-top: 50;
+}
+
+
+/*homepage*/
+
+#profile{
+    float:left;
+}
+
+#swipe{
+    float:middle;
+}
+
+#matches{
+    float:right;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>  
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="frontPage" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="eksamen.css">
+    <title>My dating app</title>
+</head>
+
+<body>
+
+
+
+
+<div>
+
+    <!--denne knap skal logge brugeren ud og sende dem tilbage til startsiden-->
+    <input type="button" id= "logout" onclick="logoutEvent()" value="Log out">    
+
+    <div id="profile">
+        <h1>Your profile</h1>
+        <!--
+            skal hente data fra localstorage
+
+            img (hvordan gør jeg lige det....)   
+            firstName
+            lastName
+            DOB
+            interests
+            gender
+            sexualPrefference
+
+            skal have edit buttons ud fra alle værdierne - den skal kunne gemme de nye oplysninger(HTTP requests)
+        --> 
+
+    </div>
+
+    <div id="swipe">
+        <h1>Potential new lover</h1>
+        <!--
+            billeder af forskellige profiler samt navn og interesser
+            knapper med like eller dislike
+            trykker man like ryger navnet over i matches... 
+        -->
+    </div>
+
+    <div id="matches">
+        <h1>List of your matches</h1>
+        <!--
+            liste med navne over matches
+            en knap ud fra matchesne hvor man kan slette dem!
+
+            der skal gives besked når man bliver liket tilbage.... 
+        -->
+    </div>
+</div>
+
+
+<script src="../controller/API.js"></script>
+</body>
+</html>
