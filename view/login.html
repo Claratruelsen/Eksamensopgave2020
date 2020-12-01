@@ -12,14 +12,13 @@
     <div id="login">
         <form id="login">
             <h1>Login</h1>
-            <label for="email">Email:</label>
-            <input type= "email" id="email" placeholder="Enter email..."> <!--required sørger for, at når brugeren submitter formen, og ikke har tastet sin email i dette tilfælde, vil der dukke en lille boks op, som beder brugeren om at udfylde den-->
+            <label for="username">Username:</label>
+            <input type= "username" id="username" placeholder="Enter username..."> <!--required sørger for, at når brugeren submitter formen, og ikke har tastet sin email i dette tilfælde, vil der dukke en lille boks op, som beder brugeren om at udfylde den-->
                 <br><br>
             <label for="password">Password:</label>
             <input type= "password" id="password" placeholder="Enter password...">
                 <br><br>
             <input type="button" id= "submitLogin" onclick="loginEvent()" value="Login">
-
             <!--submit knappen skal checke om oplysningerne er korrekt og hvis de er skal den lede over i homepage-->
 
         </form>
@@ -34,8 +33,8 @@
             <label for="lastname">Lastname:</label>
             <input type= "text" id="lastname" placeholder="Enter your last name...">
                 <br><br>
-            <label for="DOB">Date of birth:</label>
-            <input type="date" id="DOB">
+            <label for="age">Age:</label>
+            <input type="text" id="age" placeholder="Enter your age...">
                 <br><br>
             <label for="interests">Interests:</label>
              <input type= "text" id="interests" placeholder="Enter your interests...">
@@ -43,14 +42,11 @@
             <label for="gender">Gender:</label>
             <input type= "text" id="gender" placeholder="Enter your gender...">
                 <br><br>
-            <label for="sexualPrefference">Sexual prefference:</label>
-            <input type= "text" id="gender" placeholder="Enter your sexual prefference...">
+            <label for="newUsername">Choose a username:</label>
+            <input type= "text" id="newUsername" placeholder="Enter a username...">
                 <br><br>
-            <label for="newEmail">Email:</label>
-            <input type= "text" id="newEmail" placeholder="Enter email...">
-                <br><br>
-            <label for="newPassword">Password:</label>
-            <input type= "text" id="newPassword" placeholder="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+            <label for="newPassword">Choose a password:</label>
+            <input type= "text" id="newPassword" placeholder="Must contain at least 8 or more characters">
                 <br><br>
             <input type="button" id= "registerUser" onclick="registerUserEvent()" value="Register new user">    
 

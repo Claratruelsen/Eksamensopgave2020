@@ -1,36 +1,18 @@
 
-/*
-
-//Henter alle mine Id'er fra html..
-const email=document.getElementById("email"), //med kommaet slipper jeg for at skrive const ved hver enkelt
-password=document.getElementById("password"),
-firstName=document.getElementById("firstName"),
-lastName=document.getElementById("lastName"),
-DOB=document.getElementById("DOB"),
-interests=document.getElementById("interests"),
-gender=document.getElementById("gender"),
-sexualPrefference=document.getElementById("sexualPrefference"),
-newEmail=document.getElementById("newEmail"),
-newPassword=document.getElementById("newPassword"),
-submitNewUser=document.getElementById("submitNewUser"),
-submitLogin=document.getElementById("submitLogin")
-
-*/
-
 
 // login functionality - link: https://www.youtube.com/watch?v=ZS_FG60sDG8
 
 function loginEvent() {
 	// retreive data from username and store in username variable
-	var email = document.getElementById('email').value
+	var username = document.getElementById('username').value
 	// retreive data from password and store in password variable
 	var password = document.getElementById('password').value
 
 	// loop through all the user objects and confrim if the username and password are correct
 	for(var i = 0; i < userList.length; i++) {
 		// check to 
-		if(email == userList[i].email && password == userList[i].password) {
-			console.log(email + ' is logged in!!!')
+		if(username == userList[i].username && password == userList[i].password) {
+			console.log(username + ' is logged in!!!')
 			// stop the statement if result is found true 
 			break
 		} else {
@@ -43,7 +25,7 @@ function loginEvent() {
 // register functionality
 function registerUserEvent() {
 	// store new users username
-	var registerEmail = document.getElementById('newEmail').value
+	var registerUsername = document.getElementById('newUsername').value
 	// store new users password
 	var registerPassword = document.getElementById('newPassword').value
 	// store new user data in an object
