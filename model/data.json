@@ -1,2 +1,21 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "username": "claratruelsen",
+        "password": "hejhej123",
+        "firstName":"Clara",
+        "lastName":"Truelsen",
+        "age":"21",
+        "interests":"coding",
+        "sexuality":"hetero sexual",
+        "matches":"0"
+    }
+]
+
+
+
+    }
+
 
 

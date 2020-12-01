@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Claratruelsen/Eksamensopgave2020/issues"
   },
-  "homepage": "https://github.com/Claratruelsen/Eksamensopgave2020#readme"
+  "homepage": "https://github.com/Claratruelsen/Eksamensopgave2020#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "json-server": "^0.16.3"
+  }
 }
