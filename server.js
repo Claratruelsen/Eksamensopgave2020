@@ -1,24 +1,22 @@
+//henter express
 const express = require('express');
 const app = express()
 
+//henter cors
 const cors = require('cors')
 app.use(cors())
 
+//bruger inbygget fs funktion - denne hjælper med at endpoints kan læse og redigere i JSON data
 const fs = require('fs');
 
-// Require for Routes
-const userControllers = require("./controllers/userControllers.js");
-const matchControllers = require("./controllers/matchControllers.js");
-const userView = require("./view/userView");
 
-
-
-// Vi starter serveren, på port 3000
-app.listen(3000)
-console.log("Server running on port 3000")
+const userController = require("./controller/userController");
 
 
 // Crud-endpoints
-app.use('/User', userControllers); // endpoint
-app.use('/Match', matchControllers); // endpoint
-app.use('/User/register', userView); //endpoints
+app.use('/user', userController); // endpoint
+
+
+app.listen(3000)
+console.log("Server running on port 3000")
+

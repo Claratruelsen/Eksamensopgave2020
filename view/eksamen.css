@@ -1,29 +1,46 @@
 
+/*generelt*/
+body{
+    background-color: aquamarine;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 /*loginpage*/
+
+#header{
+font-size: 30px;
+}
 
 #login{
     float: left;
-    margin-top: 30;
-    padding-top: 30;
+    padding: 10px;
+justify-content: center;
+    background-color: greenyellow;
+
 }
 
-#createUser{
+#createUser{ 
     float:right;
-    margin-top: 30;
-    padding-top: 50;
+    padding: 10px;
+    text-align: center;
+    background-color: greenyellow;
 }
 
 
 /*homepage*/
 
 #profile{
+    border: 3px greenyellow;
     float:left;
 }
 
 #swipe{
+    border: 3px greenyellow;
     float:middle;
 }
 
 #matches{
+    border: 3px greenyellow;
     float:right;
 }
