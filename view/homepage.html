@@ -16,7 +16,7 @@
 <div>
 
     <!--denne knap skal logge brugeren ud og sende dem tilbage til startsiden-->
-    <input type="button" id= "logout" onclick="logoutEvent()" value="Log out">    
+    <input type="button" id= "logout" href="./loginpage.html" value="Log out">    
 
     <div id="profile">
         <h1>Your profile</h1>
@@ -38,6 +38,11 @@
 
     <div id="swipe">
         <h1>Potential new lover</h1>
+
+        <button onclick="like()" class="like">Like</button>
+        <button onclick="dislike()" class="dislike">Dislike</button>
+        <button type="button" onclick="profileInfo()">About</button>
+        
         <!--
             billeder af forskellige profiler samt navn og interesser
             knapper med like eller dislike
