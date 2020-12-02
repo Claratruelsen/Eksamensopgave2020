@@ -3,20 +3,28 @@ const express = require('express');
 // create new router
 const router = express.Router();
 // create a JSON data array
-let data = [
-    { id: 1, title: 'Create a project',  order: 1, completed: true, createdOn: new Date() },
-    { id: 2, title: 'Take a cofféé',     order: 2, completed: true, createdOn: new Date() },
-    { id: 3, title: 'Write new article', order: 3, completed: true, createdOn: new Date() },
-    { id: 4, title: 'Walk toward home', order: 4, completed: false, createdOn: new Date() },
-    { id: 5, title: 'Have some dinner', order: 5, completed: false, createdOn: new Date() },
-];
+
+
+const fs = require('fs')
+fs.readFile('./DB/data.json', (err, jsonString) => {
+    if (err) {
+        console.log("Error reading file from disk:", err)
+        return
+    }
+    try {
+        const user = JSON.parse(jsonString)
+        console.log(user)
+} catch(err) {
+        console.log('Error parsing JSON string:', err)
+    }
+})
 
 // HTTP methods ↓↓ starts here.
 
 // READ
 // this api end-point of an API returns JSON data array
 router.get('/', function (req, res) {
-    res.status(200).json(data);
+    res.status(200).json(user);
 });
 
 // READ
@@ -24,7 +32,7 @@ router.get('/', function (req, res) {
 // we get `id` from URL end-points
 router.get('/:id', function (req, res) {
     // find an object from `data` array match by `id`
-    let found = data.find(function (item) {
+    let found = user.find(function (item) {
         return item.id === parseInt(req.params.id);
     });
     // if object found return an object else return 404 not-found
@@ -34,7 +42,7 @@ router.get('/:id', function (req, res) {
         res.sendStatus(404);
     }
 });
-
+/*
 // CREATE
 // this api end-point add new object to item list
 // that is add new object to `data` array
@@ -126,6 +134,7 @@ router.delete('/:id', function (req, res) {
 
 // module.exports is an object included in every JS file of Node.js
 // application, whatever we assign to module.exports will be exposed as a module. 
+*/
 module.exports = router;
 
 
