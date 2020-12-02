@@ -10,7 +10,34 @@
         "interests":"coding",
         "gender":"female",
         "matches":"0"
-    }
+    },
+
+    {
+      "id": 2,
+      "username": "ninna",
+      "password": "hejsahejsa",
+      "firstName":"Ninna",
+      "lastName":"Jensen",
+      "age":"25",
+      "interests":"working out",
+      "gender":"female",
+      "matches":"0"
+  },
+
+  {
+    "id": 3,
+    "username": "mads",
+    "password": "hallohallo",
+    "firstName":"Mads",
+    "lastName":"Sørensen",
+    "age":"23",
+    "interests":"painting",
+    "gender":"male",
+    "matches":"0"
+}
+
+
+
 ]
 
 
