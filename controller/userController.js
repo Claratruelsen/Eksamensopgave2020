@@ -2,22 +2,117 @@
 const express = require('express');
 // create new router
 const router = express.Router();
-// create a JSON data array
 
-
+//læser data fra json filen og parser den således at den bliver til et array af objekter:
 const fs = require('fs')
-fs.readFile('./DB/data.json', (err, jsonString) => {
+fs.readFile('./DB/user.json', (err, jsonString) => {
     if (err) {
         console.log("Error reading file from disk:", err)
         return
     }
     try {
-        const user = JSON.parse(jsonString)
-        console.log(user)
+        const userList = JSON.parse(jsonString)
+        console.log(userList)
 } catch(err) {
         console.log('Error parsing JSON string:', err)
     }
 })
+
+console.log(userList);
+
+
+/*
+
+.find
+
+req.body.email.find
+
+
+
+der skal laves to funktioner: 
+
+login funktion, som checker om brugernavn og password stemmer overens og dernæst videresender dem til profilsiden... 
+
+
+createuser funktion 
+
+den her fil skal snakke med modelUSer og hente dataen fra innerhtml.value
+sætte det ind i usermodel og gør det til et JS opbejk som så kan konverteres til et JSON objekt igennem JSON.stringify
+
+med id: loop igennem de id'er der er i JSON filen og få den til at inkrementere det med en når en ny bruger logger ind!
+
+
+login: 
+
+<form id="login">
+ id="username" 
+id="password" 
+
+            <input type="button" id= "submitLogin" onclick="loginEvent()" value="Login">
+            <!--submit knappen skal checke om oplysningerne er korrekt og hvis de er skal den lede over i homepage-->
+
+
+function login{
+
+    
+    //læs data fra JSON fil og konverter til js objekt 
+    //check om username og password stemmer overens - loop igennem klassen og se om username.value/ password.value fra html er den samme som JSON
+    // hvis de er de samme skal den hente route for useren så den sendes til 
+}
+
+
+
+ <form id="createUser">
+            <h1>Create new user</h1>
+            <label for="firstname">Firstname:</label>
+            <input type= "text" id="firstname" placeholder="Enter your first name...">
+                <br><br>
+            <label for="lastname">Lastname:</label>
+            <input type= "text" id="lastname" placeholder="Enter your last name...">
+                <br><br>
+            <label for="age">Age:</label>
+            <input type="text" id="age" placeholder="Enter your age...">
+                <br><br>
+            <label for="interests">Interests:</label>
+             <input type= "text" id="interests" placeholder="Enter your interests...">
+                <br><br>
+            <label for="gender">Gender:</label>
+            <input type= "text" id="gender" placeholder="Enter your gender...">
+                <br><br>
+            <label for="newUsername">Choose a username:</label>
+            <input type= "text" id="newUsername" placeholder="Enter a username...">
+                <br><br>
+            <label for="newPassword">Choose a password:</label>
+            <input type= "text" id="newPassword" placeholder="Must contain at least 8 or more characters">
+                <br><br>
+            <input type="button" id= "registerUser" onclick="registerUserEvent()" value="Register new user">    
+
+            <!-- submit knappen skal checke at det ikke allerede er en bruger og hvis ikke skal den oprette en ny i local storage, give denne bruger et ID samt føre over til homepage-->
+        </form>
+
+
+
+Create a JavaScript object with the table array in it
+
+var obj = {
+   table: []
+};
+Add some data to it, for example:
+
+obj.table.push({id: 1, square:2});
+Convert it from an object to a string with JSON.stringify
+
+var json = JSON.stringify(obj);
+Use fs to write the file to disk
+
+var fs = require('fs');
+fs.writeFile('myjsonfile.json', json, 'utf8', callback);
+
+
+
+
+
+// https://stackoverflow.com/questions/36856232/write-add-data-in-json-file-using-node-js
 
 // HTTP methods ↓↓ starts here.
 
@@ -134,10 +229,10 @@ router.delete('/:id', function (req, res) {
 
 // module.exports is an object included in every JS file of Node.js
 // application, whatever we assign to module.exports will be exposed as a module. 
-*/
+
 module.exports = router;
 
-
+*/
 
 
 

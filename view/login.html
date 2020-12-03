@@ -24,7 +24,7 @@
             <label for="password">Password:</label>
             <input type= "password" id="password" placeholder="Enter password...">
                 <br><br>
-            <input type="button" id= "submitLogin" onclick="loginEvent()" value="Login">
+            <input type="button" id= "submitLogin" onclick="login()" value="Login">
             <!--submit knappen skal checke om oplysningerne er korrekt og hvis de er skal den lede over i homepage-->
 
         </form>
@@ -54,14 +54,14 @@
             <label for="newPassword">Choose a password:</label>
             <input type= "text" id="newPassword" placeholder="Must contain at least 8 or more characters">
                 <br><br>
-            <input type="button" id= "registerUser" onclick="registerUserEvent()" value="Register new user">    
+            <input type="button" id= "registerUser" onclick="registerUser()" value="Register new user">    
 
             <!-- submit knappen skal checke at det ikke allerede er en bruger og hvis ikke skal den oprette en ny i local storage, give denne bruger et ID samt føre over til homepage-->
         </form>
     </div>
  
     
-    <script src="../server.js"></script>
+    <script src="./login.js"></script>
 <body/>
 </html>
 
