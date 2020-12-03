@@ -3,22 +3,38 @@ const express = require('express');
 // create new router
 const router = express.Router();
 
-//læser data fra json filen og parser den således at den bliver til et array af objekter:
-const fs = require('fs')
-fs.readFile('./DB/user.json', (err, jsonString) => {
-    if (err) {
-        console.log("Error reading file from disk:", err)
-        return
-    }
-    try {
-        const userList = JSON.parse(jsonString)
-        console.log(userList)
-} catch(err) {
-        console.log('Error parsing JSON string:', err)
-    }
-})
+//læser data fra json filen og parser den således at den bliver til et js objekt jeg kan bruge:
 
-console.log(userList);
+const fs = require('fs')
+ let users= fs.readFile('./data.json', (err, jsonString) => {
+     if (err) {
+         console.log("Error reading file from disk:", err)
+         return
+     }
+     try {
+         const users = JSON.parse(jsonString)
+         console.log(users)
+ } catch(err) {
+         console.log('Error parsing JSON string:', err)
+     }
+ })
+console.log(users);
+
+module.exports=users
+
+// login funktion:
+
+$("#login").submit(function(event){
+    event.preventDefault();
+var username= $("#username").val();
+var password= $("#password").val();
+
+if (!username== users.username && !password==users.password){
+    $("#loginfail").html("oops, wrong username or password")
+}else{
+    redirect
+}
+})
 
 
 /*
@@ -60,35 +76,6 @@ function login{
     // hvis de er de samme skal den hente route for useren så den sendes til 
 }
 
-
-
- <form id="createUser">
-            <h1>Create new user</h1>
-            <label for="firstname">Firstname:</label>
-            <input type= "text" id="firstname" placeholder="Enter your first name...">
-                <br><br>
-            <label for="lastname">Lastname:</label>
-            <input type= "text" id="lastname" placeholder="Enter your last name...">
-                <br><br>
-            <label for="age">Age:</label>
-            <input type="text" id="age" placeholder="Enter your age...">
-                <br><br>
-            <label for="interests">Interests:</label>
-             <input type= "text" id="interests" placeholder="Enter your interests...">
-                <br><br>
-            <label for="gender">Gender:</label>
-            <input type= "text" id="gender" placeholder="Enter your gender...">
-                <br><br>
-            <label for="newUsername">Choose a username:</label>
-            <input type= "text" id="newUsername" placeholder="Enter a username...">
-                <br><br>
-            <label for="newPassword">Choose a password:</label>
-            <input type= "text" id="newPassword" placeholder="Must contain at least 8 or more characters">
-                <br><br>
-            <input type="button" id= "registerUser" onclick="registerUserEvent()" value="Register new user">    
-
-            <!-- submit knappen skal checke at det ikke allerede er en bruger og hvis ikke skal den oprette en ny i local storage, give denne bruger et ID samt føre over til homepage-->
-        </form>
 
 
 
