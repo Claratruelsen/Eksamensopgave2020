@@ -4,34 +4,6 @@ const app = express();
 
 //henter cors
 const cors = require('cors')
-app.use(cors());
-
-//henter middleware som lader mig tilgå mine html filer - alle statiske filer     
-
-app.use(express.static("view"));
-
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/view/login.html");
-})
-
-/*
-const users = require("./controller/userController.js");
-app.use("/users", users)
-*/
-
-
-app.listen(3000)
-
-
-
-/*
-
-//henter express
-const express = require('express');
-const app = express();
-
-//henter cors
-const cors = require('cors')
 app.use(cors())
 
 //bruger inbygget fs funktion - denne hjælper med at endpoints kan læse og redigere i JSON data
@@ -39,6 +11,20 @@ const fs = require('fs');
 const data=fs.readFileSync("data.json");
 const users=JSON.parse(data);
 
+
+//henter indbygget express middleware som lader mig tilgå mine html og CSS filer - (alle statiske filer  )   
+app.use(express.static("view"));
+
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/view/login.html");
+})
+
+
+
+/*
+const users = require("./controller/userController.js");
+app.use("/users", users)
+*/
 
 
 //login
@@ -61,25 +47,10 @@ function addUser(req,res){
 }
 
 
-//localhost:3000
-const server=app.listen(3000, listening) // call back function så jeg ved at porten virker/lytter
-function listening(){
-    console.log("Listening on port...")
-}
-
-//tilgår brugen af html som frontend for min server 
-app.use(express.static("view"));
+app.listen(3000)
 
 
 
-/*
-const userController = require("./controller/userController");
-
-
-// Crud-endpoints
-app.use('/user', userController); // endpoint
-
-*/
 
 
 

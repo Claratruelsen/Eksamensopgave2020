@@ -1,6 +1,7 @@
+const express = require('express');
+const router=express.Router();
+
 //læser data fra json filen og parser den således at den bliver til et js objekt jeg kan bruge:
-
-
 const fs = require('fs')
  let users= fs.readFile('./data.json', (err, jsonString) => {
      if (err) {
@@ -14,9 +15,11 @@ const fs = require('fs')
          console.log('Error parsing JSON string:', err)
      }
  });
+console.log(users);
 
+module.exports=user
 
-
+/*
 // login functionality
 function login() {
 	// retreive data from username and store in username variable
@@ -37,23 +40,7 @@ function login() {
 		}
 	}
 }
-/*
-//Log in
-function login(){
-   var controlUsername= document.getElementById("username").value
-   var controlPassword=document.getElementById("password").value
-
-   for (i=0; i<users.length; i++){
-    if(!users[i].username == controlUsername && !users[i].password ==controlPassword){
-        console.log("password and username not correct")
-     }else {
-         console.log("succes")
-     }
-        
-    }
-
-}
-
+*/
 
 /*
 
