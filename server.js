@@ -1,9 +1,10 @@
-/*
+//henter express
 const express = require('express');
 const app = express();
-var cors = require('cors');
-app.use(cors())
 
+//henter cors
+const cors = require('cors')
+app.use(cors())
 
     
 app.get("/", (req, res) => {
@@ -19,7 +20,6 @@ app.use("/users", users)
 
 app.listen(3000)
 
-*/
 
 
 
