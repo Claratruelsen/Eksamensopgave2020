@@ -1,8 +1,8 @@
-const express = require('express');
-const router = express.Router();
+//const express = require('express');
+//const router = express.Router();
 
 //læser data fra json filen og parser den således at den bliver til et js objekt jeg kan bruge:
-
+/*
 const fs = require('fs')
  let users= fs.readFile('./data.json', (err, jsonString) => {
      if (err) {
@@ -19,7 +19,47 @@ const fs = require('fs')
 
 /*
 module.exports=router
+*/
 
+users= [
+    {
+      "id": 1,
+      "username": "claratruelsen",
+      "password": "hejhej123",
+      "firstName":"Clara",
+      "lastName":"Truelsen",
+      "age":"21",
+      "interests":"coding",
+      "gender":"female",
+      "matches":"0"
+  },
+
+  {
+    "id": 2,
+    "username": "ninna",
+    "password": "hejsahejsa",
+    "firstName":"Ninna",
+    "lastName":"Jensen",
+    "age":"25",
+    "interests":"working out",
+    "gender":"female",
+    "matches":"0"
+},
+
+{
+  "id": 3,
+  "username": "mads",
+  "password": "hallohallo",
+  "firstName":"Mads",
+  "lastName":"Sørensen",
+  "age":"23",
+  "interests":"painting",
+  "gender":"male",
+  "matches":"0"
+}
+
+
+]
 
 // login functionality
 function login() {
