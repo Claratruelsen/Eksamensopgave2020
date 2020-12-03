@@ -4,21 +4,17 @@ const app = express();
 var cors = require('cors');
 app.use(cors())
 
-const ejs=require('ejs');
+
     
-    app.get("/", (req, res) => {
-        res.render("./view/login.ejs")
+app.get("/", (req, res) => {
+res.render("./view/login.html")
     
-    })
+})
 
 
-
-
-/*
 const users = require("./controller/userController.js");
 app.use("/users", users)
 
-*/
 
 
 app.listen(3000)

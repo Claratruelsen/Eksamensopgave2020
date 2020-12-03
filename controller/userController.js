@@ -1,6 +1,4 @@
-// import required essentials
-const express = require('express');
-// create new router
+hvconst express = require('express');
 const router = express.Router();
 
 //læser data fra json filen og parser den således at den bliver til et js objekt jeg kan bruge:
@@ -17,46 +15,48 @@ const fs = require('fs')
  } catch(err) {
          console.log('Error parsing JSON string:', err)
      }
- })
-console.log(users);
+ });
 
-module.exports=users
 
-// login funktion:
+module.exports=router
 
-$("#login").submit(function(event){
-    event.preventDefault();
-var controlUsername= $("#username").val();
-var controlPassword= $("#password").val();
-// skal loope igennem data array.... 
-for (i=0; i<users.length; i++){
+
+// login functionality
+function login() {
+	// retreive data from username and store in username variable
+	var username = document.getElementById('username').value
+	// retreive data from password and store in password variable
+	var password = document.getElementById('password').value
+
+	// loop through all the user pbjects and confrim if the username and password are correct
+	for(var i = 0; i < users.length; i++) {
+		// check to 
+		if(username == users[i].username && password == users[i].password) {
+			console.log(username + ' is logged in!!!')
+			// stop the statement if result is found true - this was a return in the video, break is best practice here
+			break
+		} else {
+			// error if username and password don't match
+			console.log('incorrect username or password')
+		}
+	}
+}
+/*
+//Log in
+function login(){
+   var controlUsername= document.getElementById("username").value
+   var controlPassword=document.getElementById("password").value
+
+   for (i=0; i<users.length; i++){
     if(!users[i].username == controlUsername && !users[i].password ==controlPassword){
-        $("#loginfail").html("oops, wrong username or password") 
+        console.log("password and username not correct")
      }else {
-         
+         console.log("succes")
      }
         
     }
+
 }
-//Log in
-router.post("/login",  (req, res) => {
-       
-    console.log(req.body) 
-
-    // Finds the user via the email in the databse
-    let user = JSON.parse(fs.readFileSync(dataPath + req.body.email + ".json"))
-
-    console.log(user)
-    
-    if(req.body.email == user.email && req.body.password == user.password){ // If the password typed into the logIn form matches the same as the user that corrosponds it should login
-        res.json(user) // Sends it as, res.json(user)
-    } else  {
-        res.json({err: "Error"}) //If it doesn't match, it throws an Error
-    }
-    
-
-  });
-
 
 
 /*
@@ -82,13 +82,6 @@ med id: loop igennem de id'er der er i JSON filen og få den til at inkrementere
 
 login: 
 
-<form id="login">
- id="username" 
-id="password" 
-
-            <input type="button" id= "submitLogin" onclick="loginEvent()" value="Login">
-            <!--submit knappen skal checke om oplysningerne er korrekt og hvis de er skal den lede over i homepage-->
-
 
 function login{
 
@@ -97,26 +90,6 @@ function login{
     //check om username og password stemmer overens - loop igennem klassen og se om username.value/ password.value fra html er den samme som JSON
     // hvis de er de samme skal den hente route for useren så den sendes til 
 }
-
-
-
-
-Create a JavaScript object with the table array in it
-
-var obj = {
-   table: []
-};
-Add some data to it, for example:
-
-obj.table.push({id: 1, square:2});
-Convert it from an object to a string with JSON.stringify
-
-var json = JSON.stringify(obj);
-Use fs to write the file to disk
-
-var fs = require('fs');
-fs.writeFile('myjsonfile.json', json, 'utf8', callback);
-
 
 
 
@@ -318,20 +291,6 @@ function registerUserEvent() {
 	// console the updated people array
 	console.log(userList)
 }
-
-
-/*
-const users = require("./hardUser");
-const express = require("express");
-const router = express.Router();
-
-
-router.get ("/", function (req, res) {
-    res.end(JSON.stringify(users))
-});
-
-
-module.exports=users;
 
 
 
