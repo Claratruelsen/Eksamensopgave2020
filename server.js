@@ -1,20 +1,27 @@
-const http = require('http');
+
 const express = require('express');
 const app = express();
 var cors = require('cors');
 app.use(cors())
 
+const ejs=require('ejs');
+    
+    app.get("/", (req, res) => {
+        res.render("./view/login.ejs")
+    
+    })
 
+
+
+
+/*
 const users = require("./controller/userController.js");
 app.use("/users", users)
 
-
-const server = http.createServer(app);
-const port = 3000;
-server.listen(port);
-console.debug('Server listening on port ' + port);
+*/
 
 
+app.listen(3000)
 
 
 

@@ -26,15 +26,37 @@ module.exports=users
 
 $("#login").submit(function(event){
     event.preventDefault();
-var username= $("#username").val();
-var password= $("#password").val();
-
-if (!username== users.username && !password==users.password){
-    $("#loginfail").html("oops, wrong username or password")
-}else{
-    redirect
+var controlUsername= $("#username").val();
+var controlPassword= $("#password").val();
+// skal loope igennem data array.... 
+for (i=0; i<users.length; i++){
+    if(!users[i].username == controlUsername && !users[i].password ==controlPassword){
+        $("#loginfail").html("oops, wrong username or password") 
+     }else {
+         
+     }
+        
+    }
 }
-})
+//Log in
+router.post("/login",  (req, res) => {
+       
+    console.log(req.body) 
+
+    // Finds the user via the email in the databse
+    let user = JSON.parse(fs.readFileSync(dataPath + req.body.email + ".json"))
+
+    console.log(user)
+    
+    if(req.body.email == user.email && req.body.password == user.password){ // If the password typed into the logIn form matches the same as the user that corrosponds it should login
+        res.json(user) // Sends it as, res.json(user)
+    } else  {
+        res.json({err: "Error"}) //If it doesn't match, it throws an Error
+    }
+    
+
+  });
+
 
 
 /*
