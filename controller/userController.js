@@ -1,4 +1,4 @@
-hvconst express = require('express');
+const express = require('express');
 const router = express.Router();
 
 //læser data fra json filen og parser den således at den bliver til et js objekt jeg kan bruge:
@@ -17,7 +17,7 @@ const fs = require('fs')
      }
  });
 
-
+/*
 module.exports=router
 
 
