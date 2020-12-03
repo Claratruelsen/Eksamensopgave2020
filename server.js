@@ -4,35 +4,23 @@ const app = express();
 
 //henter cors
 const cors = require('cors')
-app.use(cors())
+app.use(cors());
 
-    
+//henter middleware som lader mig tilgå mine html filer - alle statiske filer     
+
+app.use(express.static("view"));
+
 app.get("/", (req, res) => {
-res.render("./view/login.html")
-    
+  res.sendFile(__dirname + "/view/login.html");
 })
 
-
+/*
 const users = require("./controller/userController.js");
 app.use("/users", users)
-
+*/
 
 
 app.listen(3000)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -92,4 +80,9 @@ const userController = require("./controller/userController");
 app.use('/user', userController); // endpoint
 
 */
+
+
+
+
+
 
