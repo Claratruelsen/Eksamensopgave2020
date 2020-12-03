@@ -22,8 +22,8 @@ app.get("/", (req, res) => {
 
 
 /*
-const users = require("./controller/userController.js");
-app.use("/users", users)
+const user = require("./controller/userController.js");
+app.use("/user", user)
 */
 
 

@@ -1,5 +1,6 @@
-const express = require('express');
-const router=express.Router();
+const express = require("express");
+const fs = require("fs");
+const router = express.Router();
 
 //læser data fra json filen og parser den således at den bliver til et js objekt jeg kan bruge:
 const fs = require('fs')
@@ -17,7 +18,7 @@ const fs = require('fs')
  });
 console.log(users);
 
-module.exports=user
+module.exports = router;
 
 /*
 // login functionality
