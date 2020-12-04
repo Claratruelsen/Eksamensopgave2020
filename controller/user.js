@@ -1,16 +1,16 @@
 const express = require("express");
 const fs = require("fs");
 const router = express.Router();
-/*
+
 //læser data fra json filen og parser den således at den bliver til et js objekt jeg kan bruge:
- let users= fs.readFile('./data.json', (err, jsonString) => {
+ let existingUsers= fs.readFile('./model/data.json', (err, jsonString) => {
      if (err) {
          console.log("Error reading file from disk:", err)
          return
      }
      try {
-         const users = JSON.parse(jsonString)
-         console.log(users)
+         const existingUsers = JSON.parse(jsonString)
+         console.log(existingUsers)
  } catch(err) {
          console.log('Error parsing JSON string:', err)
      }
@@ -40,7 +40,6 @@ function login() {
 document.addEventListener("DOMContentLoaded", ()=>{
     document.getElementById("loginbtn").addEventListener("click",login);
 })
-*/
 
 //create user function https://www.youtube.com/watch?v=NxVCq4p0Kb0
 let users=[];

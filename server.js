@@ -1,26 +1,34 @@
 //henter express
 const express = require('express');
 const app = express();
-//henter cors
+//henter cors - cors sørger for at andre servere kan tilgå dataen... https://www.youtube.com/watch?v=zoSJ3bNGPp0
 const cors = require('cors')
 app.use(cors())
 app.use(cors());
 
-//henter middleware som lader mig tilgå mine html filer - alle statiske filer     
-
+//middleware : fs, body-parser - lader os tilgå JSON data https://www.youtube.com/watch?v=zoSJ3bNGPp0
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+const fs = require('fs');
+//middleware som lader mig tilgå mine statiske filer 
 app.use(express.static("view"));
+  
 
 
 app.get("/", (req, res) => {
 res.sendFile(__dirname + "/view/login.html");
 })
 
+app.get("/profile", (req, res) => {
+  res.sendFile(__dirname + "/view/profile.html");
+  })
 
-/*
-const users = require("./controller/userController.js");
+
+const users = require("./controller/user.js");
 app.use("/users", users)
 
-*/
+
 
 app.listen(3000)
 /*
