@@ -1,28 +1,28 @@
 //henter express
-const http= require('http'); 
 const express = require('express');
 const app = express();
-
 //henter cors
 const cors = require('cors')
 app.use(cors())
+app.use(cors());
 
-//bruger inbygget fs funktion - denne hjælper med at endpoints kan læse og redigere i JSON data
-const fs = require('fs');
-const data=fs.readFileSync("./public/data.json");
-const users=JSON.parse(data);
+//henter middleware som lader mig tilgå mine html filer - alle statiske filer     
 
-
-//henter indbygget express middleware som lader mig tilgå mine html og CSS filer - (alle statiske filer  )   
-app.use("/public", express.static("/public"));
+app.use(express.static("view"));
 
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/view/login.html");
+res.sendFile(__dirname + "/view/login.html");
 })
 
 
+/*
+const users = require("./controller/userController.js");
+app.use("/users", users)
 
+*/
+
+app.listen(3000)
 /*
 const user = require("./controller/userController.js");
 app.use("/user", user)
@@ -49,7 +49,7 @@ function addUser(req,res){
 }
 
 */
-app.listen(3000)
+
 
 
 
