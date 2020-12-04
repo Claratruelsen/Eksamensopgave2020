@@ -10,9 +10,6 @@
 
 <body>
 
-
-
-
 <div>
 
     <!--denne knap skal logge brugeren ud og sende dem tilbage til startsiden-->
@@ -20,33 +17,34 @@
 
     <div id="profile">
         <h1>Your profile</h1>
+        
+        <div id="pFirstName"></div>
 
+            <br><button id="uFirstName">Update firstname</button> <br> 
 
-        <!--
-            skal hente data fra json fil igennem userController 
+        <div id="pLastName"></div>
 
-            img (hvordan gør jeg lige det....)   
-            firstName
-            lastName
-            DOB
-            interests
-            gender
-            sexualPrefference
+            <br><button id="uLastName">Update lastname</button> <br> 
 
-            skal have edit buttons ud fra alle værdierne - den skal kunne gemme de nye oplysninger(HTTP requests)
-        --> 
+        <div id="pAge"></div>
 
+            <br><button id="uAge">Update age</button> <br> 
+
+        <div id="pInterests"></div> 
+
+            <br><button id="uInterests">Update interest</button> <br> 
+
+        <div id="pGender"></div> 
+
+            <br><button id="uGender">Update gender</button> <br>    
     </div>
 
     <div id="swipe">
         <h1>Potential new lover</h1>
         
-
-
-
-        <button onclick="like()" class="like">Like</button>
-        <button onclick="dislike()" class="dislike">Dislike</button>
-        <button type="button" onclick="profileInfo()">About</button>
+        <button id="like">Like</button> 
+        <button id="dislike">Dislike</button> 
+        <button id="matchInfo">About</button> 
         
         <!--
             billeder af forskellige profiler samt navn og interesser

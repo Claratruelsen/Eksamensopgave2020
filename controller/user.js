@@ -1,9 +1,8 @@
 const express = require("express");
 const fs = require("fs");
 const router = express.Router();
-
+/*
 //læser data fra json filen og parser den således at den bliver til et js objekt jeg kan bruge:
-const fs = require('fs')
  let users= fs.readFile('./data.json', (err, jsonString) => {
      if (err) {
          console.log("Error reading file from disk:", err)
@@ -16,11 +15,8 @@ const fs = require('fs')
          console.log('Error parsing JSON string:', err)
      }
  });
-console.log(users);
 
-module.exports = router;
 
-/*
 // login functionality
 function login() {
 	// retreive data from username and store in username variable
@@ -41,7 +37,54 @@ function login() {
 		}
 	}
 }
+document.addEventListener("DOMContentLoaded", ()=>{
+    document.getElementById("loginbtn").addEventListener("click",login);
+})
 */
+
+//create user function https://www.youtube.com/watch?v=NxVCq4p0Kb0
+let users=[];
+const createUser= (ev)=>{
+    ev.preventDefault(); //stopper formen fra at submitte (realoade...)
+    let user={
+        username:document.getElementById("newUsername").value,
+        password: document.getElementById("newPassword").value,
+        firstname:document.getElementById("firstname").value,
+        lastname:document.getElementById("lastname").value,
+        age:document.getElementById("age").value,
+        interests:document.getElementById("interests").value,
+        gender:document.getElementById("gender").value,
+        matches:[]
+    }
+    users.push(user);
+    document.forms[0].reset();
+//savng to local storage
+localStorage.setItem("eksamen2020UserList", JSON.stringify(users));
+
+console.warn("added", JSON.stringify(users));
+
+}
+document.addEventListener("DOMContentLoaded", ()=>{
+    document.getElementById("createbtn").addEventListener("click",createUser);
+})
+
+
+//output til profil info...
+var pFirstname=document.getElementById("pFirstname");
+pFirstname.innerHTML=users.firstname
+var pLastname=document.getElementById("pFirstname");
+pLastname.innerHTML=users.lastname
+var pAge=document.getElementById("pAge");
+pAge.innerHTML=users.age
+var pInterests=document.getElementById("pInterests");
+pInterests.innerHTML=users.interests
+var pGender=document.getElementById("pGender");
+pGender.innerHTML=users.gender
+
+
+module.exports = router;
+
+
 
 /*
 

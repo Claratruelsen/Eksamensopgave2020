@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="frontPage" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <link rel="stylesheet" href="eksamen.css">
+    <link rel="stylesheet" href="eksamen.css" type="text/css">
     <title>login page</title>
 </head>
 
@@ -24,7 +24,7 @@
             <label for="password">Password:</label>
             <input type= "password" id="password" placeholder="Enter password...">
                 <br><br>
-          <button onclick="login()">Login</button>
+          <button id="loginbtn">Login</button>
             <!--submit knappen skal checke om oplysningerne er korrekt og hvis de er skal den lede over i homepage-->
             <p id=loginfail></p> <!--henter error msg fra userController-->
         </form>
@@ -54,15 +54,14 @@
             <label for="newPassword">Choose a password:</label>
             <input type= "text" id="newPassword" placeholder="Must contain at least 8 or more characters">
                 <br><br>
-                <button onclick="registerUser()">Register new user</button> 
+                <button id="createbtn">Register new user</button> 
 
             <!-- submit knappen skal checke at det ikke allerede er en bruger og hvis ikke skal den oprette en ny i local storage, give denne bruger et ID samt føre over til homepage-->
         </form>
     </div>
  
     
-    <script src="../server.js"></script>
-    <script src="../controller/user.js"></script>
+    <script src="../controller/user.js" type="text/javascript"></script>
 <body/>
 </html>
 

@@ -1,11 +1,10 @@
 {
     "users": [
       {
-        "id": 1,
         "username": "claratruelsen",
         "password": "hejhej123",
-        "firstName":"Clara",
-        "lastName":"Truelsen",
+        "firstname":"Clara",
+        "lastname":"Truelsen",
         "age":"21",
         "interests":"coding",
         "gender":"female",
@@ -13,11 +12,10 @@
     },
 
     {
-      "id": 2,
       "username": "ninna",
       "password": "hejsahejsa",
-      "firstName":"Ninna",
-      "lastName":"Jensen",
+      "firstname":"Ninna",
+      "lastname":"Jensen",
       "age":"25",
       "interests":"working out",
       "gender":"female",
@@ -25,24 +23,19 @@
   },
 
   {
-    "id": 3,
     "username": "mads",
     "password": "hallohallo",
-    "firstName":"Mads",
-    "lastName":"Sørensen",
+    "firstname":"Mads",
+    "lastname":"Sørensen",
     "age":"23",
     "interests":"painting",
     "gender":"male",
     "matches":"0"
 }
 
+          ]
 
-
-]
-
-
-
-    }
+}
 
 
 
