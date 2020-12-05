@@ -15,7 +15,7 @@ const fs = require('fs');
 app.use(express.static("view"));
   
 
-
+//route til loginsiden - roden 
 app.get("/", (req, res) => {
 res.sendFile(__dirname + "/view/login.html");
 })

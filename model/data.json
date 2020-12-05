@@ -1,5 +1,4 @@
-{
-    "users": [
+[
       {
         "username": "claratruelsen",
         "password": "hejhej123",
@@ -33,9 +32,8 @@
     "matches":""
 }
 
-          ]
+]
 
-}
 
 
 

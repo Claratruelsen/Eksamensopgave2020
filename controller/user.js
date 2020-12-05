@@ -60,11 +60,21 @@ const createUser= (ev)=>{
 //savng to local storage
 localStorage.setItem("eksamen2020UserList", JSON.stringify(users));
 
-console.warn("added", JSON.stringify(users));
+console.log(user);
 
 }
 document.addEventListener("DOMContentLoaded", ()=>{
     document.getElementById("createbtn").addEventListener("click",createUser);
+})
+
+router.post("/create", (req, res)=>{
+    req.body.username,
+    req.body.password,
+    req.body.firstname,
+    req.body.lastname,
+    req.body.age,
+    req.body.interests,
+    req.body.gender
 })
 
 
