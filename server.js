@@ -20,28 +20,20 @@ app.get("/", (req, res) => {
 res.sendFile(__dirname + "/view/login.html");
 })
 
-app.get("/profile", (req, res) => {
-  res.sendFile(__dirname + "/view/profile.html");
-  })
+app.get("/users", (req,res)=>{
+  let users = JSON.parse(fs.readFileSync("./model/data.json"))
+  res.status(200).json(users)
+})
 
-
-const users = require("./controller/user.js");
-app.use("/users", users)
-
-
-
-app.listen(3000)
-/*
-const user = require("./controller/userController.js");
-app.use("/user", user)
-*/
-
-/*
 //login
 app.get("/user/:username", sendUser);
 function sendUser(req,res){
     var data=req.params;
     res.send(data.user);
+}
+
+app.post("/create"), (req, res)=>{
+  res
 }
 
 //create 
@@ -56,7 +48,16 @@ function addUser(req,res){
     fs.writeFile("data.json", users)
 }
 
+
+app.listen(3000)
+/*
+const user = require("./controller/userController.js");
+app.use("/user", user)
 */
+
+
+
+
 
 
 

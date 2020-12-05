@@ -1,38 +1,26 @@
-{
-    "username": "claratruelsen",
-    "password": "hejhej123",
-    "firstname":"Clara",
-    "lastname":"Truelsen",
-    "age":"21",
-    "interests":"coding",
-    "gender":"female",
-    "matches":""
-},
 
+function createUser() {
+    let newUser={
+        username:document.getElementById("newUsername").value,
+        password: document.getElementById("newPassword").value,
+        firstname:document.getElementById("firstname").value,
+        lastname:document.getElementById("lastname").value,
+        age:document.getElementById("age").value,
+        interests:document.getElementById("interests").value,
+        gender:document.getElementById("gender").value,
+        matches:[]
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-//fetch.... 
-
-function createUser(user){
-    
-    //Laver en fetch, see https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
-fetch('http://localhost:3000/', {
+        document.addEventListener("DOMContentLoaded", ()=>{
+        document.getElementById("createbtn").addEventListener("click",createUser);
+})
+  
+fetch('http://localhost:3000/create', {
   method: 'POST', // or 'PUT'
   headers: {
     'Content-Type': 'application/json',
   },
-  body: JSON.stringify(user),
+  body: JSON.stringify(newUser),
 }).then(response => response.json()).then(data => 
     {
   alert('Success:', data);
@@ -41,7 +29,6 @@ fetch('http://localhost:3000/', {
   console.error('Error:', error);
 });
 }
-
 
  
 function log_in(){
@@ -55,8 +42,8 @@ function log_in(){
     };
   
   
-    fetch('http://localhost:3000/user/login', {
-        method: 'POST',
+    fetch('http://localhost:3000/users', {
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -64,12 +51,13 @@ function log_in(){
       })
       .then(response => response.json())
       .then(data => {
-        console.log('Logget ind:', data);
-        localStorage.setItem("loggedIn", JSON.stringify(data))  // Create a local storage, with the key "loggedIN" and data (email + password)
-        window.location="home.html" // Sends the user to home.HTML 
-        
+        //console.log('Logget ind:', data);
+        //localStorage.setItem("loggedIn", JSON.stringify(data))  // Create a local storage, with the key "loggedIN" and data (email + password)
+        //window.location="home.html" // Sends the user to home.HTML 
+        console.log(data)
       })
       .catch((error) => {
         console.error(error);
       });
     }
+
