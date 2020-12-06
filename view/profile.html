@@ -14,24 +14,26 @@
         <h1>Your profile</h1>
         
         <div id="pFirstname"></div> <!--skal indeholde dataen fra json filen-->
-        <br><input type= "firstName" id="nFirstname" placeholder="Enter new first name">
-            <br><button id="uFirstName">Update firstname</button> <br> 
+        <br><input type= "firstname" id="nFirstname" placeholder="Enter new first name">
 
         <div id="pLastname"></div>
         <br><input type= "lastname" id="nLastname" placeholder="Enter new last name...">
-            <br><button id="uLastName">Update lastname</button> <br> 
 
         <div id="pAge"></div>
         <br><input type= "age" id="nAge" placeholder="Enter new age...">
-            <br><button id="uAge">Update age</button> <br> 
 
         <div id="pInterests"></div> 
         <br><input type= "interests" id="nInterests" placeholder="Enter new interest...">
-            <br><button id="uInterests">Update interest</button> <br> 
 
         <div id="pGender"></div> 
-        <br><input type= "gender" id="nGender" placeholder="Enter new gender..">
-            <br><button id="uGender">Update gender</button> <br>    
+        <br><input type= "gender" id="nGender" placeholder="Enter new gender.."> 
+            
+        <br><button id="update">Update user</button><br> 
+
+        <br><button id="delete">Delete user</button> <br>   
+
+        <!--denne knap skal logge brugeren ud og sende dem tilbage til startsiden-->
+        <br><input type="button" id= "logout" value="Log out"><br>   
     </div>
 
     <div id="swipe">
@@ -50,10 +52,7 @@
         <div id="matchList"></div>
     </div>
 </div>
-
-    <!--denne knap skal logge brugeren ud og sende dem tilbage til startsiden-->
-    <input type="button" id= "logout" value="Log out">    
-
+ 
 <script src="profile.js" type="text/javascript"></script>
 </body>
 </html>

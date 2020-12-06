@@ -45,7 +45,7 @@ router.post("/create", (req,res) => {
 		} else {
             res.json({err: "oops...incorrect username or password"}) // viser en error besked hvis oplysningerne ikke passer!
 		}
-    }
+    }})
     
 
 //sletter bruger     
@@ -54,26 +54,28 @@ router.delete("/delete", (req, res)=>{
 })
 
 
-//opdaterer oplysninger
-router.put("/update/firstname", (req, res)=>{
+//opdaterer oplysninger - hvis req.body.firstname ikke er tomt så skal den nye værdi sættes ind som ny data i json
+router.put("/update", (req, res)=>{
+    let updatedUser=(
+        req.body.firstname,
+        req.body.lastname,
+        req.body.age,
+        req.body.interests,
+        req.body.gender
+    )
+    for(var i = 0; i < existingUsers.length; i++) {
+		if(req.body.firstname !== "") {
+            fs.writeFile('./data.json', JSON.stringify(newUser, null, 2), (err) => {
+                if (err) throw err;
+                console.log('user has been added to database');
+            });
+		} else if(req.body.lastname!==existingUsers[i].lastname){
+        
+    }
     
 })
 
-router.put("/update/lastname", (req, res)=>{
-    
-})
 
-router.put("/update/age", (req, res)=>{
-    
-})
-
-router.put("/update/interests", (req, res)=>{
-    
-})
-
-router.put("/update/gender", (req, res)=>{
-    
-})
 
 
 
