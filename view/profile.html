@@ -9,64 +9,51 @@
 </head>
 
 <body>
-
 <div>
-
-    <!--denne knap skal logge brugeren ud og sende dem tilbage til startsiden-->
-    <input type="button" id= "logout" href="./login.html" value="Log out">    
-
     <div id="profile">
         <h1>Your profile</h1>
         
-        <div id="pFirstName"></div>
-
+        <div id="pFirstname"></div> <!--skal indeholde dataen fra json filen-->
+        <br><input type= "firstName" id="nFirstname" placeholder="Enter new first name">
             <br><button id="uFirstName">Update firstname</button> <br> 
 
-        <div id="pLastName"></div>
-
+        <div id="pLastname"></div>
+        <br><input type= "lastname" id="nLastname" placeholder="Enter new last name...">
             <br><button id="uLastName">Update lastname</button> <br> 
 
         <div id="pAge"></div>
-
+        <br><input type= "age" id="nAge" placeholder="Enter new age...">
             <br><button id="uAge">Update age</button> <br> 
 
         <div id="pInterests"></div> 
-
+        <br><input type= "interests" id="nInterests" placeholder="Enter new interest...">
             <br><button id="uInterests">Update interest</button> <br> 
 
         <div id="pGender"></div> 
-
+        <br><input type= "gender" id="nGender" placeholder="Enter new gender..">
             <br><button id="uGender">Update gender</button> <br>    
     </div>
 
     <div id="swipe">
         <h1>Potential new lover</h1>
-        
-        <button id="like">Like</button> 
-        <button id="dislike">Dislike</button> 
-        <button id="matchInfo">About</button> 
-        
-        <!--
-            billeder af forskellige profiler samt navn og interesser
-            knapper med like eller dislike
-            trykker man like ryger navnet over i matches... 
-        -->
+        <img id="img" src="img.png" alt="img"> <!--her burde det selfølgelig IKKE være et staisk billede - MEN : tidspres.... -->
+
+        <div id="matchData"></div>
+
+        <button id="like">Like</button> <!--hvis man trykker her ryger navnet på matchet over i matchList div'en-->
+        <button id="dislike">Dislike</button> <!--skal aktivere en funktion som sender en anden profil oplysninger ind i matchData div'en-->
+        <button id="matchInfo">About</button> <!--hvis man trykker her skal der vises info om en profil... denne info skal vises i matchData diven...-->
     </div>
 
     <div id="matches">
         <h1>List of your matches</h1>
-        <!--
-            liste med navne over matches
-            en knap ud fra matchesne hvor man kan slette dem!
-
-            der skal gives besked når man bliver liket tilbage.... 
-        -->
+        <div id="matchList"></div>
     </div>
 </div>
 
+    <!--denne knap skal logge brugeren ud og sende dem tilbage til startsiden-->
+    <input type="button" id= "logout" value="Log out">    
 
-<script src="../server.js" type="text/javascript"></script>
-<script src="../controller/user.js" type="text/javascript"></script>
-<script src="../controller/match.js"type="text/javascript"></script>
+<script src="profile.js" type="text/javascript"></script>
 </body>
 </html>

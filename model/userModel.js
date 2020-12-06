@@ -1,6 +1,5 @@
 class User {
-    constructor(id, username, password, firstName, lastName, age, interest, gender, matches){
-        this.id = id;
+    constructor(username, password, firstName, lastName, age, interest, gender, matches){
         this.username = username;
         this.password = password;
         this.firstName = firstName;

@@ -21,7 +21,7 @@ res.sendFile(__dirname + "/view/login.html");
 })
 
 app.get("/users", (req,res)=>{
-  let users = JSON.parse(fs.readFileSync("./model/data.json"))
+  let users = JSON.parse(fs.readFileSync("/data.json"))
   res.status(200).json(users)
 })
 
