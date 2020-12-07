@@ -12,23 +12,27 @@
 <div>
     <div id="profile">
         <h1>Your profile</h1>
+        <br><div id="pUsername"></div><br>
         
-        <div id="pFirstname"></div> <!--skal indeholde dataen fra json filen-->
+        <div id="pFirstname"></div> <!--skal indeholde dataen om brugeren fra json filen-->
         <br><input type= "firstname" id="nFirstname" placeholder="Enter new first name">
+        <button id="uFirstnameBtn">Update firstname</button><br> 
 
         <div id="pLastname"></div>
         <br><input type= "lastname" id="nLastname" placeholder="Enter new last name...">
+        <button id="uLastnameBtn">Update lastname</button><br> 
 
         <div id="pAge"></div>
         <br><input type= "age" id="nAge" placeholder="Enter new age...">
+        <button id="uAgeBtn">Update age</button><br> 
 
         <div id="pInterests"></div> 
         <br><input type= "interests" id="nInterests" placeholder="Enter new interest...">
+        <button id="uInterestsBtn">Update interests</button><br> 
 
         <div id="pGender"></div> 
         <br><input type= "gender" id="nGender" placeholder="Enter new gender.."> 
-            
-        <br><button id="update">Update user</button><br> 
+        <button id="uGenderBtn">Update gender</button><br> 
 
         <br><button id="delete">Delete user</button> <br>   
 
@@ -54,5 +58,6 @@
 </div>
  
 <script src="profile.js" type="text/javascript"></script>
+<script src="../controller/user.js" type="text/javascript"></script>
 </body>
 </html>
