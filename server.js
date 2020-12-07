@@ -27,7 +27,13 @@ app.get("/users", (req,res)=>{
 
 const router = require("./controller/user.js");
 app.use("/create", router)
-
+app.use("/login/:username", router)
+app.use("/delete", router)
+app.use("/update/firstname", router)
+app.use("/update/lastname", router)
+app.use("/update/age", router)
+app.use("/update/interests", router)
+app.use("/update/gender", router)
 
 app.listen(3000)
 

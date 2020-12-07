@@ -56,7 +56,7 @@ router.post("/create", (req,res) => {
 router.delete("/delete", (req, res)=>{
 
 })
-/*
+
 
 //opdaterer oplysninger - hvis req.body.firstname ikke er tomt så skal den nye værdi sættes ind som ny data i json
 router.put("/update/firstname", (req, res)=>{
@@ -72,7 +72,7 @@ router.put("/update/firstname", (req, res)=>{
     if(req.body.firstname!==null){
         for(var i = 0; i < existingUsers.length; i++) {
             if(req.body.username == existingUsers[i].username){ 
-                let existingUsers[i] = user=(
+                user=(
                     username= existingUsers[i].username,
                     password=existingUsers[i].password,
                     firstname= uFirstname.firstname,
@@ -108,7 +108,7 @@ router.put("/update/lastname", (req, res)=>{
     if(req.body.lastname!==null){
         for(var i = 0; i < existingUsers.length; i++) {
             if(req.body.username == existingUsers[i].username){ 
-                let existingUsers[i] = user=(
+                user=(
                     username= existingUsers[i].username,
                     password=existingUsers[i].password,
                     firstname= existingUsers[i].firstname,
@@ -144,7 +144,7 @@ router.put("/update/age", (req, res)=>{
     if(req.body.age!==null){
         for(var i = 0; i < existingUsers.length; i++) {
             if(req.body.username == existingUsers[i].username){ 
-                let existingUsers[i] = user=(
+                user=(
                     username= existingUsers[i].username,
                     password=existingUsers[i].password,
                     firstname= existingUsers[i].firstname,
@@ -181,7 +181,7 @@ router.put("/update/interests", (req, res)=>{
     if(req.body.interests!==null){
         for(var i = 0; i < existingUsers.length; i++) {
             if(req.body.username == existingUsers[i].username){ 
-                let existingUsers[i] = user=(
+                user=(
                     username= existingUsers[i].username,
                     password=existingUsers[i].password,
                     firstname= existingUsers[i].firstname,
@@ -217,7 +217,7 @@ router.put("/update/gender", (req, res)=>{
     if(req.body.gender!==null){
         for(var i = 0; i < existingUsers.length; i++) {
             if(req.body.username == existingUsers[i].username){ 
-                let existingUsers[i] = user=(
+                user=(
                     username= existingUsers[i].username,
                     password=existingUsers[i].password,
                     firstname= existingUsers[i].firstname,
@@ -239,14 +239,14 @@ router.put("/update/gender", (req, res)=>{
             res.json(user.gender= document.getElementById("pGender").innerHTML)  
             res.json(user.matches = document.getElementById("matchList").innerHTML)
         }})
-
-
-
-                 
+               
 //vis info om match
 router.get("/match/info", (req, res)=>{
 
 })
 
-*/
+
+
+
+
 module.exports = router;
