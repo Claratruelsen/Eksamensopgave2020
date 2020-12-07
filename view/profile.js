@@ -1,53 +1,15 @@
-//logout funktion - sørger for at clear localstorage så vedkommende ikke længere står som værende logget ind - dernæst redirect til login siden
-function logout(){ 
-
-  document.addEventListener("DOMContentLoaded", ()=>{
-    document.getElementById("logout").addEventListener("click",logout);
-})
-
-window.localStorage.clear(); //..... skal jeg gøre dette hmhhh
-window.location="login.html";
-};
-
-function deleteUser(){ //ikke helt sikker på jeg skal sætte det sådan her op
-  let user={
-    firstname:document.getElementById("pfirstname").value,
-    lastname:document.getElementById("pLastname").value,
-    age:document.getElementById("pAge").value,
-    interests:document.getElementById("pInterests").value,
-    gender:document.getElementById("pGender").value,
-}
-
-  document.addEventListener("DOMContentLoaded", ()=>{
-  document.getElementById("delete").addEventListener("click",deleteUser);
-})
-fetch('http://localhost:3000/delete', {
-    method: 'DELETE', 
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(user), 
-  }).then(response => response.json()).then(data => 
-      {
-    alert('User has been added', data);
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
-}
-
 //update funktioner...
 
 function updateFirstname(){
 
-  let updatedFirstname={
-    username:document.getElementById("pUsername"),
-    firstname:document.getElementById("nFirstname").value,
-    lastname:document.getElementById("pLastname").value,
-    age:document.getElementById("pAge").value,
-    interests:document.getElementById("pIntersts").value,
-    gender:document.getElementById("pGender").value,
-  }
+  let updatedFirstname=[
+    username=document.getElementById("pUsername"),
+    firstname=document.getElementById("nFirstname").value,
+    lastname=document.getElementById("pLastname").value,
+    age=document.getElementById("pAge").value,
+    interests=document.getElementById("pIntersts").value,
+    gender=document.getElementById("pGender").value,
+  ]
 
   document.addEventListener("DOMContentLoaded", ()=>{
     document.getElementById("uFirstnameBtn").addEventListener("click",updateFirstname);
@@ -69,14 +31,14 @@ function updateFirstname(){
 
   function updateLastname(){
 
-    let updatedLastname={
-      username:document.getElementById("pUsername"),
-      firstname:document.getElementById("pFirstname").value,
-      lastname:document.getElementById("nLastname").value,
-      age:document.getElementById("pAge").value,
-      interests:document.getElementById("pIntersts").value,
-      gender:document.getElementById("pGender").value,
-    }
+    let updatedLastname=[
+      username=document.getElementById("pUsername"),
+      firstname=document.getElementById("pFirstname").value,
+      lastname=document.getElementById("nLastname").value,
+      age=document.getElementById("pAge").value,
+      interests=document.getElementById("pIntersts").value,
+      gender=document.getElementById("pGender").value,
+    ]
   
     document.addEventListener("DOMContentLoaded", ()=>{
       document.getElementById("uLastnameBtn").addEventListener("click",updateLastname);
@@ -98,14 +60,14 @@ function updateFirstname(){
 
     function updateAge(){
 
-      let updatedAge={
-        username:document.getElementById("pUsername"),
-        firstname:document.getElementById("pFirstname").value,
-        lastname:document.getElementById("pLastname").value,
-        age:document.getElementById("nAge").value,
-        interests:document.getElementById("pIntersts").value,
-        gender:document.getElementById("pGender").value,
-      }
+      let updatedAge=[
+        username=document.getElementById("pUsername"),
+        firstname=document.getElementById("pFirstname").value,
+        lastname=document.getElementById("pLastname").value,
+        age=document.getElementById("nAge").value,
+        interests=document.getElementById("pIntersts").value,
+        gender=document.getElementById("pGender").value,
+      ]
     
       document.addEventListener("DOMContentLoaded", ()=>{
         document.getElementById("uAgeBtn").addEventListener("click",updateAge);
@@ -127,14 +89,14 @@ function updateFirstname(){
 
       function updateInterests(){
 
-        let updatedInterests={
-          username:document.getElementById("pUsername"),
-          firstname:document.getElementById("pFirstname").value,
-          lastname:document.getElementById("pLastname").value,
-          age:document.getElementById("pAge").value,
-          interests:document.getElementById("nIntersts").value,
-          gender:document.getElementById("pGender").value,
-        }
+        let updatedInterests=[
+          username=document.getElementById("pUsername"),
+          firstname=document.getElementById("pFirstname").value,
+          lastname=document.getElementById("pLastname").value,
+          age=document.getElementById("pAge").value,
+          interests=document.getElementById("nIntersts").value,
+          gender=document.getElementById("pGender").value,
+        ]
       
         document.addEventListener("DOMContentLoaded", ()=>{
           document.getElementById("uInterestsBtn").addEventListener("click",updateInterests);
@@ -156,14 +118,14 @@ function updateFirstname(){
 
         function updateGender(){
 
-          let updatedGender={
-            username:document.getElementById("pUsername"),
-            firstname:document.getElementById("pFirstname").value,
-            lastname:document.getElementById("pLastname").value,
-            age:document.getElementById("pAge").value,
-            interests:document.getElementById("pIntersts").value,
-            gender:document.getElementById("nGender").value,
-          }
+          let updatedGender=[
+            username=document.getElementById("pUsername"),
+            firstname=document.getElementById("pFirstname").value,
+            lastname=document.getElementById("pLastname").value,
+            age=document.getElementById("pAge").value,
+            interests=document.getElementById("pIntersts").value,
+            gender=document.getElementById("nGender").value,
+          ]
         
           document.addEventListener("DOMContentLoaded", ()=>{
             document.getElementById("uGenderBtn").addEventListener("click",updateGender);
@@ -183,32 +145,144 @@ function updateFirstname(){
           });
           }
 
+//logout funktion -redirect til login siden - her kunne man bruge localstorage 
+function logout(){ 
+
+  document.addEventListener("DOMContentLoaded", ()=>{
+  document.getElementById("logout").addEventListener("click",logout);
+})
+fetch('http://localhost:3000/logout/:username', {
+    method: 'GET', 
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(response => response.json()).then(data => 
+      {
+    alert('User has been logged out', data);
+    window.location="login.html"
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+};
+
+function deleteUser(){ 
+  let user=[
+    username=document.getElementById("pUsername").value,
+  ]
+
+  document.addEventListener("DOMContentLoaded", ()=>{
+  document.getElementById("delete").addEventListener("click",deleteUser);
+})
+fetch('http://localhost:3000/delete/:username', {
+    method: 'DELETE', 
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(user), 
+  }).then(response => response.json()).then(data => 
+      {
+    alert('User has been deleted', data);
+    window.location="login.html"
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+
+
+
+
 //matchfunktioner
 
-function like(){
+function about(){
+  let matchData=[ //henter interesser fra den bruger som er logget ind så jeg kan sammeligne dem med brugerne i DB for at se om de har en fælles interesse -ellers vises bare random
+    interests=document.getElementById("pIntersts").value,
+  ]
 
-  
+  document.addEventListener("DOMContentLoaded", ()=>{
+    document.getElementById("about").addEventListener("click", about);  
+})
+fetch('http://localhost:3000/match/about', {
+            method: 'GET', 
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(matchData), 
+          }).then(response => response.json()).then(data => 
+              {
+            alert('Match profile is shown', data);
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+}
+
+function like(){
+  let matchData=[
+    username=document.getElementById("pUsername").value,
+  ]
+
   document.addEventListener("DOMContentLoaded", ()=>{
     document.getElementById("like").addEventListener("click",like);
 })
+fetch('http://localhost:3000/match/like', {
+            method: 'GET', 
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(matchData), 
+          }).then(response => response.json()).then(data => 
+              {
+            alert('Match profile is shown', data);
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
 }
 
 function dislike(){
+  let matchData=[
+    username=document.getElementById("pUsername").value,
+  ]
+
   document.addEventListener("DOMContentLoaded", ()=>{
     document.getElementById("dislike").addEventListener("click",dislike);
 })
-}
-
-function about(){
-  document.addEventListener("DOMContentLoaded", ()=>{
-    document.getElementById("about").addEventListener("click", about);
-})
-
+fetch('http://localhost:3000/match/dislike', {
+            method: 'GET', 
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(matchData), 
+          }).then(response => response.json()).then(data => 
+              {
+            alert('Match profile is shown', data);
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
 }
 
 function deleteMatch(){
-  document.addEventListener("DOMContentLoaded", ()=>{
-    document.getElementById("deleteMatch").addEventListener("click",deleteMatch);
-})
+  let matchData=[
+    username=document.getElementById("pUsername").value,
+  ]
 
+  document.addEventListener("DOMContentLoaded", ()=>{
+    document.getElementById("deleteMatch").addEventListener("click", about);  
+})
+fetch('http://localhost:3000/match/delete', {
+            method: 'DELETE', 
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(matchData), 
+          }).then(response => response.json()).then(data => 
+              {
+            alert('Match has been deleted', data);
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
 }

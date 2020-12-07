@@ -7,7 +7,7 @@
         "age":"21",
         "interests":"coding",
         "gender":"female",
-        "matches":""
+        "matches":0
     },
 
     {
@@ -18,7 +18,7 @@
       "age":"25",
       "interests":"working out",
       "gender":"female",
-      "matches":""
+      "matches":0
   },
 
   {
@@ -29,7 +29,27 @@
     "age":"23",
     "interests":"painting",
     "gender":"male",
-    "matches":""
+    "matches":0
+},
+{
+  "username": "hansi",
+  "password": "kodeordet",
+  "firstname":"Hans",
+  "lastname":"Sigurdsen",
+  "age":"39",
+  "interests":"coding",
+  "gender":"male",
+  "matches":0
+},
+{
+  "username": "lone",
+  "password": "12345678",
+  "firstname":"Lone",
+  "lastname":"Abraham",
+  "age":"60",
+  "interests":"painting",
+  "gender":"female",
+  "matches":0
 }
 
 ]

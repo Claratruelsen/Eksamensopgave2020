@@ -11,8 +11,8 @@
 <body>
 <div id="profileDiv">
     <div id="profile">
-        <h1>Your profile</h1>
-        <br><div id="pUsername"></div><br>
+        <h2>Your profile</h2>
+        <p>You are logged in as:</p><div id="pUsername"></div><br>
         
         <div id="pFirstname"></div> <!--skal indeholde dataen om brugeren fra json filen-->
         <br><input type= "firstname" id="nFirstname" placeholder="Enter new first name">
@@ -41,10 +41,19 @@
     </div>
 
     <div id="swipe">
-        <h1>Potential new lover</h1>
+        <h2>Potential new lover</h2>
+        <p>Based on common interests, <br> we suggest this profile as a possible macth...</p>
         <img id="img" src="img.png" alt="img"> <!--her burde det selfølgelig IKKE være et staisk billede - MEN : tidspres.... -->
 
-        <div id="matchData"></div>
+        <div id="matchData">
+            <!--
+            <div id="mUsername"></div><br>
+            <div id="mFirstname"></div><br>
+            <div id="mAge"></div><br>
+            <div id="mInterests"></div><br>
+            <div id="mGender"></div><br>
+            -->
+        </div>
 
         <button id="like">Like</button> <!--hvis man trykker her ryger navnet på matchet over i matchList div'en-->
         <button id="dislike">Dislike</button> <!--skal aktivere en funktion som sender en anden profil oplysninger ind i matchData div'en-->
@@ -52,7 +61,7 @@
     </div>
 
     <div id="matches">
-        <h1>List of your matches</h1>
+        <h2>List of your matches</h2>
         <div id="matchList"></div>
         <br><button id="deleteMatch">Delete match</button> 
     </div>
