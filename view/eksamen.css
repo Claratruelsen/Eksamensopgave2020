@@ -6,7 +6,7 @@ body{
     font-family: 'Times New Roman', Times, serif;
 }
 
-/*loginpage*/
+/*login*/
 
 #header{
 font-size: 30px;
@@ -28,21 +28,25 @@ justify-content: center;
 }
 
 
-/*homepage*/
+/*profile*/
+
 
 #profile{
     border: 3px greenyellow;
     float:left;
+
 }
 
 #swipe{
     border: 3px greenyellow;
     float:middle;
+
 }
 
 #matches{
     border: 3px greenyellow;
     float:right;
+
 }
 
 #img{

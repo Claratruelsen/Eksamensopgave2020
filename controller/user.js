@@ -36,7 +36,7 @@ router.post("/create", (req,res) => {
     }) 
   
     //Log in - checker om oplysningerne er korrekt og hvis de er sendes brugeren over til sin profil
-    router.post("/login/:username",  (req, res) => {    
+    router.get("/login/:username",  (req, res) => {    
 	// looper igennem mit existing users array og ser om det indtastede username og password matcher 
 	for(var i = 0; i < existingUsers.length; i++) {
 		if(req.body.username == existingUsers[i].username && req.body.password == existingUsers[i].password) {
@@ -51,6 +51,10 @@ router.post("/create", (req,res) => {
 		}
     }})
     
+//logger ud
+router.get("/logout/:username", (req,res)=>{
+
+})
 
 //sletter bruger     
 router.delete("/delete", (req, res)=>{
@@ -239,11 +243,29 @@ router.put("/update/gender", (req, res)=>{
             res.json(user.gender= document.getElementById("pGender").innerHTML)  
             res.json(user.matches = document.getElementById("matchList").innerHTML)
         }})
-               
+    
+//match routes:         
+
 //vis info om match
-router.get("/match/info", (req, res)=>{
+router.get("/match/about", (req, res)=>{
 
 })
+
+//hvis man trykker dislike så henter vi oplysninger fra en anden profil
+router.get("/match/dislike", (req, res)=>{
+    res.json()// en anden bruger 
+})
+
+//hvis like trykkes på ryger navnet på matchet ind i matchlist
+router.post("/match/like", (req,res)=>{
+    res.json({ "message" : "Match created"});
+})
+
+//skal kunne slette match
+router.delete("match/delete", (req, res)=>{
+    res.json({ "message" : "Deleted match"});
+});
+
 
 
 

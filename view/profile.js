@@ -183,3 +183,15 @@ function updateFirstname(){
             console.error('Error:', error);
           });
           }
+
+function like(){
+
+}
+
+function dislike()(
+
+)
+
+function about(){
+  
+}
