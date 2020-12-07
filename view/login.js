@@ -1,4 +1,3 @@
-
 function createUser() {
     let newUser={
         username:document.getElementById("newUsername").value,
@@ -30,7 +29,6 @@ fetch('http://localhost:3000/create', {
 });
 }
 
- 
 function login(){
   
     let logininfo = {
@@ -61,3 +59,6 @@ function login(){
         console.error(error);
       });
     }
+
+
+

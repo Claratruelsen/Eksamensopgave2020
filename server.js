@@ -20,16 +20,17 @@ app.get("/", (req, res) => {
 res.sendFile(__dirname + "/view/login.html");
 })
 
+app.get("/users", (req,res)=>{
+  let users = JSON.parse(fs.readFileSync("data.json"))
+  res.status(200).json(users)
+})
+
+const router = require("./controller/user.js");
+app.use("/create", router)
 
 
 app.listen(3000)
 
-/* endpoint som henter info om alle brugerne.... 
-app.get("/users", (req,res)=>{
-  let users = JSON.parse(fs.readFileSync("/data.json"))
-  res.status(200).json(users)
-})
-*/
 
 
 

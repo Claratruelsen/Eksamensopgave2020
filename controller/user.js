@@ -1,4 +1,3 @@
-upconst { match } = require("assert");
 const express = require("express");
 const fs = require("fs");
 const router = express.Router();
@@ -36,7 +35,6 @@ router.post("/create", (req,res) => {
     });
     }) 
   
-
     //Log in - checker om oplysningerne er korrekt og hvis de er sendes brugeren over til sin profil
     router.post("/login/:username",  (req, res) => {    
 	// looper igennem mit existing users array og ser om det indtastede username og password matcher 
@@ -58,7 +56,7 @@ router.post("/create", (req,res) => {
 router.delete("/delete", (req, res)=>{
 
 })
-
+/*
 
 //opdaterer oplysninger - hvis req.body.firstname ikke er tomt så skal den nye værdi sættes ind som ny data i json
 router.put("/update/firstname", (req, res)=>{
@@ -250,6 +248,5 @@ router.get("/match/info", (req, res)=>{
 
 })
 
-//
-
+*/
 module.exports = router;
