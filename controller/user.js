@@ -47,6 +47,7 @@ router.post("/create", (req,res) => {
             res.json(existingUsers[i].age = document.getElementById("pAge").innerHTML)
             res.json(existingUsers[i].interests = document.getElementById("pInterests").innerHTML)
             res.json(existingUsers[i].gender = document.getElementById("pGender").innerHTML)
+            res.json(existingUsers[i].matches = document.getElementById("matchList").innerHTML)
 		} else {
             res.json({err: "oops...incorrect username or password"}) // viser en error besked hvis oplysningerne ikke passer!
 		}
@@ -93,7 +94,7 @@ router.put("/update/firstname", (req, res)=>{
             res.json(user.age= document.getElementById("pAge").innerHTML) 
             res.json(user.interests= document.getElementById("pInterests").innerHTML) 
             res.json(user.gender= document.getElementById("pGender").innerHTML) 
-            
+            res.json(user.matches = document.getElementById("matchList").innerHTML)
     }})
 
 router.put("/update/lastname", (req, res)=>{
@@ -129,12 +130,121 @@ router.put("/update/lastname", (req, res)=>{
             res.json(user.age= document.getElementById("pAge").innerHTML) 
             res.json(user.interests= document.getElementById("pInterests").innerHTML) 
             res.json(user.gender= document.getElementById("pGender").innerHTML)  
+            res.json(user.matches = document.getElementById("matchList").innerHTML)
     }})
 
+router.put("/update/age", (req, res)=>{
+    let uAge=(
+        req.body.username,
+        req.body.firstname,
+        req.body.lastname,
+        req.body.age,
+        req.body.interests,
+        req.body.gender
+        )
+    
+    if(req.body.age!==null){
+        for(var i = 0; i < existingUsers.length; i++) {
+            if(req.body.username == existingUsers[i].username){ 
+                let existingUsers[i] = user=(
+                    username= existingUsers[i].username,
+                    password=existingUsers[i].password,
+                    firstname= existingUsers[i].firstname,
+                    lastname=existingUsers[i].lastname,
+                    age=uAge.age,
+                    interests=existingUsers[i].interests,
+                    gender=existingUsers[i].gender,
+                    matches=existingUsers[i].matches
+                )}}   
+                fs.writeFile('./data.json', JSON.stringify(user, null, 2), (err) => {
+                if (err) throw err;
+                console.log('Age has been updated');
+                });  
+            res.json(user.username= document.getElementById("pUsername").innerHTML)
+            res.json(user.firstname= document.getElementById("pFirstname").innerHTML) 
+            res.json(user.lastname= document.getElementById("pLastname").innerHTML) 
+            res.json(user.age= document.getElementById("pAge").innerHTML) 
+            res.json(user.interests= document.getElementById("pInterests").innerHTML) 
+            res.json(user.gender= document.getElementById("pGender").innerHTML) 
+            res.json(user.matches = document.getElementById("matchList").innerHTML) 
+        }})
+    
+
+router.put("/update/interests", (req, res)=>{
+    let uInterests=(
+        req.body.username,
+        req.body.firstname,
+        req.body.lastname,
+        req.body.age,
+        req.body.interests,
+        req.body.gender
+        )
+            
+    if(req.body.interests!==null){
+        for(var i = 0; i < existingUsers.length; i++) {
+            if(req.body.username == existingUsers[i].username){ 
+                let existingUsers[i] = user=(
+                    username= existingUsers[i].username,
+                    password=existingUsers[i].password,
+                    firstname= existingUsers[i].firstname,
+                    lastname=existingUsers[i].lastname,
+                    age=existingUsers[i].age,
+                    interests=uInterests.interests,
+                    gender=existingUsers[i].gender,
+                    matches=existingUsers[i].matches
+                )}}   
+                fs.writeFile('./data.json', JSON.stringify(user, null, 2), (err) => {
+                if (err) throw err;
+                console.log('Interests have been updated');
+                });  
+            res.json(user.username= document.getElementById("pUsername").innerHTML)
+            res.json(user.firstname= document.getElementById("pFirstname").innerHTML) 
+            res.json(user.lastname= document.getElementById("pLastname").innerHTML) 
+            res.json(user.age= document.getElementById("pAge").innerHTML) 
+            res.json(user.interests= document.getElementById("pInterests").innerHTML) 
+            res.json(user.gender= document.getElementById("pGender").innerHTML) 
+            res.json(user.matches = document.getElementById("matchList").innerHTML) 
+        }})
+         
+router.put("/update/gender", (req, res)=>{
+    let uGender=(
+        req.body.username,
+        req.body.firstname,
+        req.body.lastname,
+        req.body.age,
+        req.body.interests,
+        req.body.gender
+        )
+                    
+    if(req.body.gender!==null){
+        for(var i = 0; i < existingUsers.length; i++) {
+            if(req.body.username == existingUsers[i].username){ 
+                let existingUsers[i] = user=(
+                    username= existingUsers[i].username,
+                    password=existingUsers[i].password,
+                    firstname= existingUsers[i].firstname,
+                    lastname=existingUsers[i].lastname,
+                    age=existingUsers[i].age,
+                    interests=existingUsers[i].interests,
+                    gender=uGender.gender,
+                    matches=existingUsers[i].matches
+                )}}   
+                fs.writeFile('./data.json', JSON.stringify(user, null, 2), (err) => {
+                if (err) throw err;
+                console.log('Gender has been updated');
+                });  
+            res.json(user.username= document.getElementById("pUsername").innerHTML)
+            res.json(user.firstname= document.getElementById("pFirstname").innerHTML) 
+            res.json(user.lastname= document.getElementById("pLastname").innerHTML) 
+            res.json(user.age= document.getElementById("pAge").innerHTML) 
+            res.json(user.interests= document.getElementById("pInterests").innerHTML) 
+            res.json(user.gender= document.getElementById("pGender").innerHTML)  
+            res.json(user.matches = document.getElementById("matchList").innerHTML)
+        }})
 
 
 
-
+                 
 //vis info om match
 router.get("/match/info", (req, res)=>{
 
