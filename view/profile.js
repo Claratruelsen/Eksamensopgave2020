@@ -36,7 +36,6 @@ fetch('http://localhost:3000/delete', {
   });
 }
 
-
 //update funktioner...
 
 function updateFirstname(){
@@ -184,14 +183,32 @@ function updateFirstname(){
           });
           }
 
+//matchfunktioner
+
 function like(){
+
+  
+  document.addEventListener("DOMContentLoaded", ()=>{
+    document.getElementById("like").addEventListener("click",like);
+})
+}
+
+function dislike(){
+  document.addEventListener("DOMContentLoaded", ()=>{
+    document.getElementById("dislike").addEventListener("click",dislike);
+})
+}
+
+function about(){
+  document.addEventListener("DOMContentLoaded", ()=>{
+    document.getElementById("about").addEventListener("click", about);
+})
 
 }
 
-function dislike()(
+function deleteMatch(){
+  document.addEventListener("DOMContentLoaded", ()=>{
+    document.getElementById("deleteMatch").addEventListener("click",deleteMatch);
+})
 
-)
-
-function about(){
-  
 }

@@ -248,7 +248,7 @@ router.put("/update/gender", (req, res)=>{
 
 //vis info om match
 router.get("/match/about", (req, res)=>{
-
+//lav noget if statement om at hvis de har samme interesser så kommer de op først
 })
 
 //hvis man trykker dislike så henter vi oplysninger fra en anden profil
@@ -258,7 +258,8 @@ router.get("/match/dislike", (req, res)=>{
 
 //hvis like trykkes på ryger navnet på matchet ind i matchlist
 router.post("/match/like", (req,res)=>{
-    res.json({ "message" : "Match created"});
+    
+    res.json({ "message" : "yay, you have a new match"});
 })
 
 //skal kunne slette match
