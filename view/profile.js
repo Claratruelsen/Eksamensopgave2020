@@ -2,19 +2,24 @@
 
 function updateFirstname(){
 
-  let updatedFirstname=[
-    username=document.getElementById("pUsername"),
-    firstname=document.getElementById("nFirstname").value,
-    lastname=document.getElementById("pLastname").value,
-    age=document.getElementById("pAge").value,
-    interests=document.getElementById("pIntersts").value,
-    gender=document.getElementById("pGender").value,
-  ]
+  let updatedFirstname={
+    username:document.getElementById("pUsername").value,
+    firstname:document.getElementById("nFirstname").value,
+    lastname:document.getElementById("pLastname").value,
+    age:document.getElementById("pAge").value,
+    interests:document.getElementById("pIntersts").value,
+    gender:document.getElementById("pGender").value
+  }
+  if (updatedFirstname.firstname!=localStorage.getItem("eksamen2020UserList").firstname){
+    localStorage.setItem("eksamen2020UserList", JSON.stringify(updatedFirstname))
+  }else {
+    alert("Firstname has been updated")
+  }
 
   document.addEventListener("DOMContentLoaded", ()=>{
     document.getElementById("uFirstnameBtn").addEventListener("click",updateFirstname);
 })
-  fetch('http://localhost:3000/update/firstname', {
+  fetch('http://localhost:3001/update/firstname', {
     method: 'PUT', 
     headers: {
       'Content-Type': 'application/json',
@@ -31,19 +36,24 @@ function updateFirstname(){
 
   function updateLastname(){
 
-    let updatedLastname=[
-      username=document.getElementById("pUsername"),
-      firstname=document.getElementById("pFirstname").value,
-      lastname=document.getElementById("nLastname").value,
-      age=document.getElementById("pAge").value,
-      interests=document.getElementById("pIntersts").value,
-      gender=document.getElementById("pGender").value,
-    ]
+    let updatedLastname={
+      username:document.getElementById("pUsername").value,
+      firstname:document.getElementById("pFirstname").value,
+      lastname:document.getElementById("nLastname").value,
+      age:document.getElementById("pAge").value,
+      interests:document.getElementById("pIntersts").value,
+      gender:document.getElementById("pGender").value
+    }
+    if (updatedLastname.lastname!=localStorage.getItem("eksamen2020UserList").lastname){
+      localStorage.setItem("eksamen2020UserList", JSON.stringify(updatedLastname))
+    }else {
+      alert("Lastname has been updated")
+    }
   
     document.addEventListener("DOMContentLoaded", ()=>{
       document.getElementById("uLastnameBtn").addEventListener("click",updateLastname);
   })
-    fetch('http://localhost:3000/update/lastname', {
+    fetch('http://localhost:3001/update/lastname', {
       method: 'PUT', 
       headers: {
         'Content-Type': 'application/json',
@@ -60,19 +70,23 @@ function updateFirstname(){
 
     function updateAge(){
 
-      let updatedAge=[
-        username=document.getElementById("pUsername"),
-        firstname=document.getElementById("pFirstname").value,
-        lastname=document.getElementById("pLastname").value,
-        age=document.getElementById("nAge").value,
-        interests=document.getElementById("pIntersts").value,
-        gender=document.getElementById("pGender").value,
-      ]
-    
+      let updatedAge={
+        username:document.getElementById("pUsername").value,
+        firstname:document.getElementById("pFirstname").value,
+        lastname:document.getElementById("pLastname").value,
+        age:document.getElementById("nAge").value,
+        interests:document.getElementById("pIntersts").value,
+        gender:document.getElementById("pGender").value
+      }
+      if (updatedAge.age!=localStorage.getItem("eksamen2020UserList").age){
+        localStorage.setItem("eksamen2020UserList", JSON.stringify(updatedAge))
+      }else {
+        alert("Age has been updated")
+      }
       document.addEventListener("DOMContentLoaded", ()=>{
         document.getElementById("uAgeBtn").addEventListener("click",updateAge);
     })
-      fetch('http://localhost:3000/update/age', {
+      fetch('http://localhost:3001/update/age', {
         method: 'PUT', 
         headers: {
           'Content-Type': 'application/json',
@@ -89,19 +103,24 @@ function updateFirstname(){
 
       function updateInterests(){
 
-        let updatedInterests=[
-          username=document.getElementById("pUsername"),
-          firstname=document.getElementById("pFirstname").value,
-          lastname=document.getElementById("pLastname").value,
-          age=document.getElementById("pAge").value,
-          interests=document.getElementById("nIntersts").value,
-          gender=document.getElementById("pGender").value,
-        ]
-      
+        let updatedInterests={
+          username:document.getElementById("pUsername").value,
+          firstname:document.getElementById("pFirstname").value,
+          lastname:document.getElementById("pLastname").value,
+          age:document.getElementById("pAge").value,
+          interests:document.getElementById("nIntersts").value,
+          gender:document.getElementById("pGender").value,
+        }
+        if (updatedInterests.interests!=localStorage.getItem("eksamen2020UserList").interests){
+          localStorage.setItem("eksamen2020UserList", JSON.stringify(updatedInterests))
+        }else {
+          alert("Interests have been updated")
+        }
+
         document.addEventListener("DOMContentLoaded", ()=>{
           document.getElementById("uInterestsBtn").addEventListener("click",updateInterests);
       })
-        fetch('http://localhost:3000/update/interests', {
+        fetch('http://localhost:3001/update/interests', {
           method: 'PUT', 
           headers: {
             'Content-Type': 'application/json',
@@ -118,19 +137,23 @@ function updateFirstname(){
 
         function updateGender(){
 
-          let updatedGender=[
-            username=document.getElementById("pUsername"),
-            firstname=document.getElementById("pFirstname").value,
-            lastname=document.getElementById("pLastname").value,
-            age=document.getElementById("pAge").value,
-            interests=document.getElementById("pIntersts").value,
-            gender=document.getElementById("nGender").value,
-          ]
-        
+          let updatedGender={
+            username:document.getElementById("pUsername").value,
+            firstname:document.getElementById("pFirstname").value,
+            lastname:document.getElementById("pLastname").value,
+            age:document.getElementById("pAge").value,
+            interests:document.getElementById("pIntersts").value,
+            gender:document.getElementById("nGender").value,
+          }
+          if (updatedGender.gender!=localStorage.getItem("eksamen2020UserList").gender){
+            localStorage.setItem("eksamen2020UserList", JSON.stringify(updatedGender))
+          }else {
+            alert("Gender has been updated")
+          }
           document.addEventListener("DOMContentLoaded", ()=>{
             document.getElementById("uGenderBtn").addEventListener("click",updateGender);
         })
-          fetch('http://localhost:3000/update/gender', {
+          fetch('http://localhost:3001/update/gender', {
             method: 'PUT', 
             headers: {
               'Content-Type': 'application/json',
@@ -151,7 +174,7 @@ function logout(){
   document.addEventListener("DOMContentLoaded", ()=>{
   document.getElementById("logout").addEventListener("click",logout);
 })
-fetch('http://localhost:3000/logout/:username', {
+fetch('http://localhost:3001/logout/:username', {
     method: 'GET', 
     headers: {
       'Content-Type': 'application/json',
@@ -167,14 +190,20 @@ fetch('http://localhost:3000/logout/:username', {
 };
 
 function deleteUser(){ 
-  let user=[
-    username=document.getElementById("pUsername").value,
-  ]
+  let user={
+    username:document.getElementById("pUsername").value,
+  }
+  if (user.username==localStorage.getItem("eksamen2020UserList").username){
+    localStorage.removeItem("eksamen2020UserList", JSON.stringify(user))
+  }else {
+    alert("User has been deleted")
+  }
+
 
   document.addEventListener("DOMContentLoaded", ()=>{
   document.getElementById("delete").addEventListener("click",deleteUser);
 })
-fetch('http://localhost:3000/delete/:username', {
+fetch('http://localhost:3001/delete/:username', {
     method: 'DELETE', 
     headers: {
       'Content-Type': 'application/json',
@@ -196,14 +225,14 @@ fetch('http://localhost:3000/delete/:username', {
 //matchfunktioner
 
 function about(){
-  let matchData=[ //henter interesser fra den bruger som er logget ind så jeg kan sammeligne dem med brugerne i DB for at se om de har en fælles interesse -ellers vises bare random
-    interests=document.getElementById("pIntersts").value,
-  ]
+  let matchData={ //henter interesser fra den bruger som er logget ind så jeg kan sammeligne dem med brugerne i DB for at se om de har en fælles interesse -ellers vises bare random
+    interests:document.getElementById("pIntersts").value,
+  }
 
   document.addEventListener("DOMContentLoaded", ()=>{
     document.getElementById("about").addEventListener("click", about);  
 })
-fetch('http://localhost:3000/match/about', {
+fetch('http://localhost:3001/match/about', {
             method: 'GET', 
             headers: {
               'Content-Type': 'application/json',
@@ -219,14 +248,14 @@ fetch('http://localhost:3000/match/about', {
 }
 
 function like(){
-  let matchData=[
-    username=document.getElementById("pUsername").value,
-  ]
+  let matchData={
+    username:document.getElementById("pUsername").value,
+  }
 
   document.addEventListener("DOMContentLoaded", ()=>{
     document.getElementById("like").addEventListener("click",like);
 })
-fetch('http://localhost:3000/match/like', {
+fetch('http://localhost:3001/match/like', {
             method: 'GET', 
             headers: {
               'Content-Type': 'application/json',
@@ -242,14 +271,14 @@ fetch('http://localhost:3000/match/like', {
 }
 
 function dislike(){
-  let matchData=[
-    username=document.getElementById("pUsername").value,
-  ]
+  let matchData={
+    username:document.getElementById("pUsername").value,
+  }
 
   document.addEventListener("DOMContentLoaded", ()=>{
     document.getElementById("dislike").addEventListener("click",dislike);
 })
-fetch('http://localhost:3000/match/dislike', {
+fetch('http://localhost:3001/match/dislike', {
             method: 'GET', 
             headers: {
               'Content-Type': 'application/json',
@@ -265,14 +294,14 @@ fetch('http://localhost:3000/match/dislike', {
 }
 
 function deleteMatch(){
-  let matchData=[
-    username=document.getElementById("pUsername").value,
-  ]
+  let matchData={
+    username:document.getElementById("pUsername").value,
+  }
 
   document.addEventListener("DOMContentLoaded", ()=>{
     document.getElementById("deleteMatch").addEventListener("click", about);  
 })
-fetch('http://localhost:3000/match/delete', {
+fetch('http://localhost:3001/match/delete', {
             method: 'DELETE', 
             headers: {
               'Content-Type': 'application/json',
