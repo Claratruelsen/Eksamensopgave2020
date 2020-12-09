@@ -25,7 +25,7 @@ function updateFirstname(){
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(updatedFirstname), //lader mig tilgå værdierne af updatedUser i min controller når jeg skriver req.body
-  }).then(response => response.json()).then(data => 
+  }).then(res => res.json()).then(data => 
       {
     alert('Firstname has been updated', data);
   })
@@ -59,7 +59,7 @@ function updateFirstname(){
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(updatedLastname), 
-    }).then(response => response.json()).then(data => 
+    }).then(res => res.json()).then(data => 
         {
       alert('Lastname has been updated', data);
     })
@@ -92,7 +92,7 @@ function updateFirstname(){
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(updatedAge), 
-      }).then(response => response.json()).then(data => 
+      }).then(res => res.json()).then(data => 
           {
         alert('Age has been updated', data);
       })
@@ -126,7 +126,7 @@ function updateFirstname(){
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(updatedInterests), 
-        }).then(response => response.json()).then(data => 
+        }).then(res => res.json()).then(data => 
             {
           alert('Interests have been updated', data);
         })
@@ -159,7 +159,7 @@ function updateFirstname(){
               'Content-Type': 'application/json',
             },
             body: JSON.stringify(updatedGender), 
-          }).then(response => response.json()).then(data => 
+          }).then(res => res.json()).then(data => 
               {
             alert('Gender has been updated', data);
           })
@@ -179,7 +179,7 @@ fetch('http://localhost:3001/logout/:username', {
     headers: {
       'Content-Type': 'application/json',
     },
-  }).then(response => response.json()).then(data => 
+  }).then(res => res.json()).then(data => 
       {
     alert('User has been logged out', data);
     window.location="login.html"
@@ -209,7 +209,7 @@ fetch('http://localhost:3001/delete/:username', {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(user), 
-  }).then(response => response.json()).then(data => 
+  }).then(res => res.json()).then(data => 
       {
     alert('User has been deleted', data);
     window.location="login.html"
@@ -284,7 +284,7 @@ fetch('http://localhost:3001/match/dislike', {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify(matchData), 
-          }).then(response => response.json()).then(data => 
+          }).then(res => res.json()).then(data => 
               {
             alert('Match profile is shown', data);
           })
@@ -307,7 +307,7 @@ fetch('http://localhost:3001/match/delete', {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify(matchData), 
-          }).then(response => response.json()).then(data => 
+          }).then(res => res.json()).then(data => 
               {
             alert('Match has been deleted', data);
           })

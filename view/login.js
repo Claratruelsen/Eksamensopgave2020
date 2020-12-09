@@ -50,7 +50,7 @@ function login(){
         },
         body: JSON.stringify(logininfo),
       })
-      .then(response => response.json())
+      .then(res => res.json())
       .then(data => {
         console.log('it worked:', data);
         window.location="profile.html" //sender over til profil siden
