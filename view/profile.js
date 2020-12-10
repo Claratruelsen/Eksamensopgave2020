@@ -25,7 +25,8 @@ function updateFirstname(){
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(updatedFirstname), //lader mig tilgå værdierne af updatedUser i min controller når jeg skriver req.body
-  }).then(res => res.json()).then(data => 
+  }).then(res => res.json())
+    .then(data => 
       {
     alert('Firstname has been updated', data);
   })
@@ -59,7 +60,8 @@ function updateFirstname(){
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(updatedLastname), 
-    }).then(res => res.json()).then(data => 
+    }).then(res => res.json())
+      .then(data => 
         {
       alert('Lastname has been updated', data);
     })
@@ -92,7 +94,8 @@ function updateFirstname(){
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(updatedAge), 
-      }).then(res => res.json()).then(data => 
+      }).then(res => res.json())
+        .then(data => 
           {
         alert('Age has been updated', data);
       })
@@ -126,7 +129,8 @@ function updateFirstname(){
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(updatedInterests), 
-        }).then(res => res.json()).then(data => 
+        }).then(res => res.json())
+          .then(data => 
             {
           alert('Interests have been updated', data);
         })
@@ -159,7 +163,8 @@ function updateFirstname(){
               'Content-Type': 'application/json',
             },
             body: JSON.stringify(updatedGender), 
-          }).then(res => res.json()).then(data => 
+          }).then(res => res.json())
+            .then(data => 
               {
             alert('Gender has been updated', data);
           })
@@ -179,7 +184,8 @@ fetch('http://localhost:3001/logout/:username', {
     headers: {
       'Content-Type': 'application/json',
     },
-  }).then(res => res.json()).then(data => 
+  }).then(res => res.json())
+    .then(data => 
       {
     alert('User has been logged out', data);
     window.location="login.html"
@@ -209,7 +215,8 @@ fetch('http://localhost:3001/delete/:username', {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(user), 
-  }).then(res => res.json()).then(data => 
+  }).then(res => res.json())
+  .then(data => 
       {
     alert('User has been deleted', data);
     window.location="login.html"
@@ -238,9 +245,16 @@ fetch('http://localhost:3001/match/about', {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify(matchData), 
-          }).then(response => response.json()).then(data => 
-              {
-            alert('Match profile is shown', data);
+          }).then(res=> res.json())
+          .then(data => 
+            {
+          // finder matchList
+          var matchList=  document.getElementById("matchList")
+          var matchName= Object.values(data)
+          matchList.innerHTML=matchName
+
+          alert('You have a new match', data);
+
           })
           .catch((error) => {
             console.error('Error:', error);
@@ -261,7 +275,7 @@ fetch('http://localhost:3001/match/like', {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify(matchData), 
-          }).then(response => response.json()).then(data => 
+          }).then(res => res.json()).then(data => 
               {
             alert('Match profile is shown', data);
           })
@@ -284,7 +298,9 @@ fetch('http://localhost:3001/match/dislike', {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify(matchData), 
-          }).then(res => res.json()).then(data => 
+
+          }).then(res => res.json())
+          .then(data => 
               {
             alert('Match profile is shown', data);
           })
@@ -307,7 +323,8 @@ fetch('http://localhost:3001/match/delete', {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify(matchData), 
-          }).then(res => res.json()).then(data => 
+          }).then(res => res.json())
+            .then(data => 
               {
             alert('Match has been deleted', data);
           })

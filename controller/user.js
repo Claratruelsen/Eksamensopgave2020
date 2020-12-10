@@ -300,8 +300,8 @@ for(var i = 0; i < existingUsers.length; i++) {
         if (err) throw err;
         console.log('a match has been added to the user');
         });  
-    res.json({ "message" : "yay, you have a new match:"+ matchName});
-    res.json(matchName+= document.getElementById("matchList").innerHTML)
+    res.json({ "message" : "yay, you have a new match:"+ user.username});
+    res.json(user.username)
 })
 
 
