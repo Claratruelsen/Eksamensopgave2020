@@ -313,20 +313,13 @@ router.get("/match/dislike", (req, res)=>{
 
 //skal kunne slette match
 router.delete("match/delete", (req, res)=>{
-    for(var i = 0; i < existingUsers.length; i++) {
-        if(req.body.username == existingUsers[i].username){ 
-          let user=[
-                username= existingUsers[i].username,
-                password=existingUsers[i].password,
-                firstname= existingUsers[i].firstname,
-                lastname=existingUsers[i].lastname,
-                age=existingUsers[i].age,
-                interests=existingUsers[i].interests,
-                gender=existingUsers[i].gender,
-                matches=existingUsers[i].matches.value-1
-            ]
-        }}   
-            fs.writeFile('./data.json', JSON.stringify(user, null, 2), (err) => {
+
+for(var i = 0; i < existingUsers.length; i++) {
+    if(req.body.username == existingUsers[i].username){
+        existingUsers[i].matches = null
+        return existingUsers[i]
+    }}
+            fs.writeFile('./data.json', JSON.stringify(existingUsers[i], null, 2), (err) => {
             if (err) throw err;
             console.log('a match has been removed');
             }); 

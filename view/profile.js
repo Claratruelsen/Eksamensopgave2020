@@ -313,19 +313,19 @@ fetch('http://localhost:3001/match/dislike', {
 }
 
 function deleteMatch(){
-  let matchData={
-    username:document.getElementById("mUsername").value,
-  }
 
+  let user={
+    username:document.getElementById("pUsername").value
+  }
   document.addEventListener("DOMContentLoaded", ()=>{
-    document.getElementById("deleteMatch").addEventListener("click", about);  
+    document.getElementById("deleteMatch").addEventListener("click", deleteMatch);  
 })
 fetch('http://localhost:3001/match/delete', {
             method: 'DELETE', 
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify(matchData), 
+            body: JSON.stringify(user), 
           }).then(res => res.json())
             .then(data => 
               {
