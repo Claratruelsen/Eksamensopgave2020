@@ -293,7 +293,7 @@ for(var i = 0; i < existingUsers.length; i++) {
     if(req.body.username == existingUsers[i].username){
         existingUsers[i].matches =match.matchUsername
         return existingUsers[i]
-    }
+    }}
 
     fs.writeFile('./data.json', JSON.stringify(existingUsers[i], null, 2), (err) => {
     if (err) throw err;
