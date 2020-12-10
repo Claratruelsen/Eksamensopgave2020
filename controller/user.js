@@ -280,28 +280,27 @@ router.get("/match/about", (req, res)=>{
         }    
     }})
 
-//hvis like trykkes på ryger navnet på matchet ind i matchlist og værdien af macthes key i JSON adderes med en
+//hvis like trykkes på ryger navnet på matchet ind i matchlist og indsætter navnet på matchet i json
 router.post("/match/like", (req,res)=>{
 
+    let match=[
+        req.body.matchUsername
+    ]
+    let user=[
+        req.body.username
+    ]
 for(var i = 0; i < existingUsers.length; i++) {
-    if(req.body.username == existingUsers[i].username){ 
-      let user=[
-            username= existingUsers[i].username,
-            password=existingUsers[i].password,
-            firstname= existingUsers[i].firstname,
-            lastname=existingUsers[i].lastname,
-            age=existingUsers[i].age,
-            interests=existingUsers[i].interests,
-            gender=existingUsers[i].gender,
-            matches=existingUsers[i].matches.value+1
-        ]
-    }}   
-        fs.writeFile('./data.json', JSON.stringify(user, null, 2), (err) => {
-        if (err) throw err;
-        console.log('a match has been added to the user');
-        });  
-    res.json({ "message" : "yay, you have a new match:"+ user.username});
-    res.json(user.username)
+    if(req.body.username == existingUsers[i].username){
+        existingUsers[i].matches =match.matchUsername
+        return existingUsers[i]
+    }
+
+    fs.writeFile('./data.json', JSON.stringify(existingUsers[i], null, 2), (err) => {
+    if (err) throw err;
+    console.log('a match has been added to the user');
+    });  
+    res.json({ "message" : "yay, you have a new match:"+ match.matchUsername});
+    res.json(match.username)
 })
 
 

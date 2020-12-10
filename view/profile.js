@@ -231,9 +231,8 @@ fetch('http://localhost:3001/delete/:username', {
 
 //matchfunktioner
 
-//Her bruger jeg faktiks Fetch, som det er ment: dataene indsættes i html via Fetch, ikke igennem min user.js fil
 function about(){
-  let matchData={ //henter interesser fra den bruger som er logget ind så jeg kan sammeligne dem med brugerne i DB for at se om de har en fælles interesse -ellers vises bare random
+  let userInterests={ //henter interesser fra den bruger som er logget ind så jeg kan sammeligne dem med brugerne i DB for at se om de har en fælles interesse -ellers vises bare random
     interests:document.getElementById("pIntersts").value,
   }
 
@@ -245,28 +244,26 @@ fetch('http://localhost:3001/match/about', {
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify(matchData), 
+            body: JSON.stringify(userInterests), 
           }).then(res=> res.json())
           .then(data => 
             {
-          // finder matchList
-          var matchList=  document.getElementById("matchList") //Det er ved at bruge at Fetch sådan her, at den kan benyttes til at sætte data ind i frontend... ikke ved at gøre det i API'et
-          var matchName= Object.values(data)
-          matchList.innerHTML=matchName
-
-          alert('You have a new match', data);
-
+          // her skulle jeg definere, at dataene for mit match skulle insættes i innerHtml    
+          alert('Match profile is shown', data);
           })
           .catch((error) => {
             console.error('Error:', error);
           });
 }
-
+//Her bruger jeg faktiks Fetch, som det er ment: dataene indsættes i html via Fetch, ikke igennem min user.js fil
 function like(){
-  let matchData={
-    username:document.getElementById("pUsername").value,
+  let match={ //henter brugernavn for den bruger, som vises i about
+    matchUsername:document.getElementById("mUsername").value,
   }
 
+  let user={
+    username:document.getElementById("pUsername").value
+  }
   document.addEventListener("DOMContentLoaded", ()=>{
     document.getElementById("like").addEventListener("click",like);
 })
@@ -275,10 +272,15 @@ fetch('http://localhost:3001/match/like', {
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify(matchData), 
+            body: JSON.stringify(match, user), 
           }).then(res => res.json()).then(data => 
               {
-            alert('Match profile is shown', data);
+          // finder matchList
+          var matchList=  document.getElementById("matchList") //Det er ved at bruge at Fetch sådan her, at den kan benyttes til at sætte data ind i frontend... ikke ved at gøre det i API'et
+          var matchName= Object.values(data)
+          matchList.innerHTML=matchName
+    
+            alert('You have a new match', data);
           })
           .catch((error) => {
             console.error('Error:', error);
@@ -287,7 +289,7 @@ fetch('http://localhost:3001/match/like', {
 
 function dislike(){
   let matchData={
-    username:document.getElementById("pUsername").value,
+    username:document.getElementById("mUsername").value,
   }
 
   document.addEventListener("DOMContentLoaded", ()=>{
@@ -312,7 +314,7 @@ fetch('http://localhost:3001/match/dislike', {
 
 function deleteMatch(){
   let matchData={
-    username:document.getElementById("pUsername").value,
+    username:document.getElementById("mUsername").value,
   }
 
   document.addEventListener("DOMContentLoaded", ()=>{
