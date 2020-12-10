@@ -16,7 +16,7 @@ function createUser() {
           alert("You already have an account - please log in instead")
         }
 
-fetch("http://localhost:3000/create", {
+fetch("http://localhost:3001/create", {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
