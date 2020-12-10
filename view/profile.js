@@ -231,6 +231,7 @@ fetch('http://localhost:3001/delete/:username', {
 
 //matchfunktioner
 
+//Her bruger jeg faktiks Fetch, som det er ment: dataene indsættes i html via Fetch, ikke igennem min user.js fil
 function about(){
   let matchData={ //henter interesser fra den bruger som er logget ind så jeg kan sammeligne dem med brugerne i DB for at se om de har en fælles interesse -ellers vises bare random
     interests:document.getElementById("pIntersts").value,
@@ -249,7 +250,7 @@ fetch('http://localhost:3001/match/about', {
           .then(data => 
             {
           // finder matchList
-          var matchList=  document.getElementById("matchList")
+          var matchList=  document.getElementById("matchList") //Det er ved at bruge at Fetch sådan her, at den kan benyttes til at sætte data ind i frontend... ikke ved at gøre det i API'et
           var matchName= Object.values(data)
           matchList.innerHTML=matchName
 
