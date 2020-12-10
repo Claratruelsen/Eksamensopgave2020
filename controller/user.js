@@ -33,6 +33,7 @@ router.post("/create", (req,res) => {
     fs.writeFile('./data.json', JSON.stringify(newUser, null, 2), (err) => {
         if (err) throw err;
         console.log('user has been added to database');
+        res.json({"message" : "you have created a user, you can now login"}) 
     });
     }) 
   
